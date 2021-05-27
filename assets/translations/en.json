@@ -1,0 +1,18 @@
+{
+    "appBarTitle": "Vaccination Appointment Searcher",
+    "introduction": "Why are you gae",
+    "stopProcess": "Stop the running Process",
+    "startProcess": "Start looking for a free appointment",
+    "email": {
+        "label": "Email",
+        "hint": "test@test.com"
+    },
+    "birthday": {
+        "label": "Birthday",
+        "hint": "25.03.1940"
+    },
+    "postal": {
+        "label": "Postal Code",
+        "hint": "39021"
+    }
+}
