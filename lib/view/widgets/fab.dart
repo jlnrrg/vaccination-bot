@@ -17,6 +17,7 @@ class FAB extends HookWidget {
     return isRunning
         ? FloatingActionButton(
             backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
             tooltip: LocaleKeys.stopProcess.tr(),
             onPressed: () =>
                 context.read(personalFormProvider.notifier).stopped(),
@@ -24,6 +25,7 @@ class FAB extends HookWidget {
           )
         : FloatingActionButton(
             backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
             tooltip: LocaleKeys.startProcess.tr(),
             onPressed: () =>
                 context.read(personalFormProvider.notifier).started(),

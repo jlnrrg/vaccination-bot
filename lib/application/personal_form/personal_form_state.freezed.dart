@@ -20,12 +20,14 @@ class _$PersonalFormStateTearOff {
       {required AutovalidateMode showErrorMessages,
       required GlobalKey<FormState> formKey,
       required bool isRunning,
-      required int executions}) {
+      required int executions,
+      required Person person}) {
     return _PersonalFormState(
       showErrorMessages: showErrorMessages,
       formKey: formKey,
       isRunning: isRunning,
       executions: executions,
+      person: person,
     );
   }
 }
@@ -39,6 +41,7 @@ mixin _$PersonalFormState {
   GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
   bool get isRunning => throw _privateConstructorUsedError;
   int get executions => throw _privateConstructorUsedError;
+  Person get person => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PersonalFormStateCopyWith<PersonalFormState> get copyWith =>
@@ -54,7 +57,10 @@ abstract class $PersonalFormStateCopyWith<$Res> {
       {AutovalidateMode showErrorMessages,
       GlobalKey<FormState> formKey,
       bool isRunning,
-      int executions});
+      int executions,
+      Person person});
+
+  $PersonCopyWith<$Res> get person;
 }
 
 /// @nodoc
@@ -72,6 +78,7 @@ class _$PersonalFormStateCopyWithImpl<$Res>
     Object? formKey = freezed,
     Object? isRunning = freezed,
     Object? executions = freezed,
+    Object? person = freezed,
   }) {
     return _then(_value.copyWith(
       showErrorMessages: showErrorMessages == freezed
@@ -90,7 +97,18 @@ class _$PersonalFormStateCopyWithImpl<$Res>
           ? _value.executions
           : executions // ignore: cast_nullable_to_non_nullable
               as int,
+      person: person == freezed
+          ? _value.person
+          : person // ignore: cast_nullable_to_non_nullable
+              as Person,
     ));
+  }
+
+  @override
+  $PersonCopyWith<$Res> get person {
+    return $PersonCopyWith<$Res>(_value.person, (value) {
+      return _then(_value.copyWith(person: value));
+    });
   }
 }
 
@@ -105,7 +123,11 @@ abstract class _$PersonalFormStateCopyWith<$Res>
       {AutovalidateMode showErrorMessages,
       GlobalKey<FormState> formKey,
       bool isRunning,
-      int executions});
+      int executions,
+      Person person});
+
+  @override
+  $PersonCopyWith<$Res> get person;
 }
 
 /// @nodoc
@@ -125,6 +147,7 @@ class __$PersonalFormStateCopyWithImpl<$Res>
     Object? formKey = freezed,
     Object? isRunning = freezed,
     Object? executions = freezed,
+    Object? person = freezed,
   }) {
     return _then(_PersonalFormState(
       showErrorMessages: showErrorMessages == freezed
@@ -143,6 +166,10 @@ class __$PersonalFormStateCopyWithImpl<$Res>
           ? _value.executions
           : executions // ignore: cast_nullable_to_non_nullable
               as int,
+      person: person == freezed
+          ? _value.person
+          : person // ignore: cast_nullable_to_non_nullable
+              as Person,
     ));
   }
 }
@@ -154,7 +181,8 @@ class _$_PersonalFormState implements _PersonalFormState {
       {required this.showErrorMessages,
       required this.formKey,
       required this.isRunning,
-      required this.executions});
+      required this.executions,
+      required this.person});
 
   @override
   final AutovalidateMode showErrorMessages;
@@ -164,10 +192,12 @@ class _$_PersonalFormState implements _PersonalFormState {
   final bool isRunning;
   @override
   final int executions;
+  @override
+  final Person person;
 
   @override
   String toString() {
-    return 'PersonalFormState(showErrorMessages: $showErrorMessages, formKey: $formKey, isRunning: $isRunning, executions: $executions)';
+    return 'PersonalFormState(showErrorMessages: $showErrorMessages, formKey: $formKey, isRunning: $isRunning, executions: $executions, person: $person)';
   }
 
   @override
@@ -185,7 +215,9 @@ class _$_PersonalFormState implements _PersonalFormState {
                     .equals(other.isRunning, isRunning)) &&
             (identical(other.executions, executions) ||
                 const DeepCollectionEquality()
-                    .equals(other.executions, executions)));
+                    .equals(other.executions, executions)) &&
+            (identical(other.person, person) ||
+                const DeepCollectionEquality().equals(other.person, person)));
   }
 
   @override
@@ -194,7 +226,8 @@ class _$_PersonalFormState implements _PersonalFormState {
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(formKey) ^
       const DeepCollectionEquality().hash(isRunning) ^
-      const DeepCollectionEquality().hash(executions);
+      const DeepCollectionEquality().hash(executions) ^
+      const DeepCollectionEquality().hash(person);
 
   @JsonKey(ignore: true)
   @override
@@ -207,7 +240,8 @@ abstract class _PersonalFormState implements PersonalFormState {
       {required AutovalidateMode showErrorMessages,
       required GlobalKey<FormState> formKey,
       required bool isRunning,
-      required int executions}) = _$_PersonalFormState;
+      required int executions,
+      required Person person}) = _$_PersonalFormState;
 
   @override
   AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
@@ -217,6 +251,8 @@ abstract class _PersonalFormState implements PersonalFormState {
   bool get isRunning => throw _privateConstructorUsedError;
   @override
   int get executions => throw _privateConstructorUsedError;
+  @override
+  Person get person => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PersonalFormStateCopyWith<_PersonalFormState> get copyWith =>

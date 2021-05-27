@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:impftermin/domain/person.dart';
 
 part 'personal_form_state.freezed.dart';
 
@@ -11,12 +12,13 @@ class PersonalFormState with _$PersonalFormState {
     required GlobalKey<FormState> formKey,
     required bool isRunning,
     required int executions,
+    required Person person,
   }) = _PersonalFormState;
 
   factory PersonalFormState.initial() => PersonalFormState(
-        showErrorMessages: AutovalidateMode.disabled,
-        formKey: GlobalKey<FormState>(),
-        isRunning: false,
-        executions: 0,
-      );
+      showErrorMessages: AutovalidateMode.disabled,
+      formKey: GlobalKey<FormState>(),
+      isRunning: false,
+      executions: 0,
+      person: Person.initial());
 }

@@ -14,5 +14,33 @@
     "postal": {
         "label": "Postal Code",
         "hint": "39021"
+    },
+    "advancedInformation": "Advanced Information",
+    "gender": {
+        "term": "Gender",
+        "female": "female",
+        "male": "male",
+        "other": "diverse",
+        "select": "Select your gender"
+    },
+    "firstname": {
+        "label": "Firstname",
+        "hint": "John"
+    },
+    "lastname": {
+        "label": "Lastname",
+        "hint": "Doe"
+    },
+    "street": {
+        "label": "Street",
+        "hint": "Albertstr."
+    },
+    "streetnr": {
+        "label": "Street Number",
+        "hint": "1"
+    },
+    "phone": {
+        "label": "Phone",
+        "hint": "015141639413"
     }
 }

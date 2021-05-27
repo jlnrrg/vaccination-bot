@@ -7,7 +7,8 @@ import 'package:impftermin/application/personal_form/personal_form_notifier.dart
 import 'package:impftermin/view/components/flat_card.dart';
 import 'package:impftermin/generated/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:impftermin/view/fab.dart';
+import 'package:impftermin/view/widgets/advanced_form.dart';
+import 'package:impftermin/view/widgets/fab.dart';
 import 'package:impftermin/view/settings/theme_data.dart';
 
 class HomePage extends HookWidget {
@@ -25,16 +26,6 @@ class HomePage extends HookWidget {
 
     final List<Widget> widgetList = [
       Text(LocaleKeys.introduction.tr()),
-      FlatCard(
-          padding: defaultPadding,
-          child: TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              icon: const Icon(FontAwesomeIcons.envelope),
-              labelText: LocaleKeys.email_label.tr(),
-              hintText: LocaleKeys.email_hint.tr(),
-            ),
-          )),
       FlatCard(
           padding: defaultPadding,
           child: TextFormField(
@@ -59,12 +50,7 @@ class HomePage extends HookWidget {
               counterText: '',
             ),
           )),
-      if (isRunning)
-        const Padding(
-          padding: EdgeInsets.all(20.0),
-          child: LinearProgressIndicator(),
-        ),
-      if (executions > 0) Text(executions.toString()),
+      const FlatCard(child: AdvancedForm()),
     ];
 
     return SafeArea(
@@ -76,27 +62,39 @@ class HomePage extends HookWidget {
                     builder: (BuildContext context, ScopedReader watch, _) {
                   final lightTheme = watch(appThemeStateNotifier);
 
-                  return DayNightSwitcherIcon(
-                      isDarkModeEnabled: !lightTheme,
-                      onStateChanged: (isDarkModeEnabled) => isDarkModeEnabled
-                          ? context
-                              .read(appThemeStateNotifier.notifier)
-                              .setLightTheme()
-                          : context
-                              .read(appThemeStateNotifier.notifier)
-                              .setDarkTheme());
+                  return IconButton(
+                      icon: lightTheme
+                          ? const Icon(FontAwesomeIcons.sun)
+                          : const Icon(FontAwesomeIcons.moon),
+                      onPressed: () => context
+                          .read(appThemeStateNotifier.notifier)
+                          .changeTheme());
                 })
               ],
             ),
-            body: Form(
-                key: formKey,
-                autovalidateMode: autovalidateMode,
-                child: ListView.separated(
-                    padding: const EdgeInsets.all(20),
-                    itemBuilder: (context, index) => widgetList[index],
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 10),
-                    itemCount: widgetList.length)),
+            body: Stack(children: [
+              Form(
+                  key: formKey,
+                  autovalidateMode: autovalidateMode,
+                  child: ListView.separated(
+                      padding: const EdgeInsets.all(20),
+                      itemBuilder: (context, index) => widgetList[index],
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 10),
+                      itemCount: widgetList.length)),
+              if (isRunning)
+                Center(
+                    child: Material(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Theme.of(context).canvasColor,
+                  child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(mainAxisSize: MainAxisSize.min, children: [
+                        const CircularProgressIndicator(),
+                        if (executions > 0) Text(executions.toString()),
+                      ])),
+                )),
+            ]),
             floatingActionButton: const FAB()));
   }
 }
