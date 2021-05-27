@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:impftermin/generated/codegen_loader.g.dart';
 
 part 'value_unions.freezed.dart';
+part 'value_unions.g.dart';
 
 @freezed
 class Gender with _$Gender {
@@ -18,6 +19,8 @@ class Gender with _$Gender {
   const factory Gender.diverse() = _Diverse;
 
   const Gender._();
+
+  factory Gender.fromJson(Map<String, dynamic> json) => _$GenderFromJson(json);
 
   @override
   String toString() {

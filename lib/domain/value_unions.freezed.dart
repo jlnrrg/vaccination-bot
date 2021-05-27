@@ -12,6 +12,20 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Gender _$GenderFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType'] as String) {
+    case 'male':
+      return _Male.fromJson(json);
+    case 'female':
+      return _Female.fromJson(json);
+    case 'diverse':
+      return _Diverse.fromJson(json);
+
+    default:
+      throw FallThroughError();
+  }
+}
+
 /// @nodoc
 class _$GenderTearOff {
   const _$GenderTearOff();
@@ -26,6 +40,10 @@ class _$GenderTearOff {
 
   _Diverse diverse() {
     return const _Diverse();
+  }
+
+  Gender fromJson(Map<String, Object> json) {
+    return Gender.fromJson(json);
   }
 }
 
@@ -64,6 +82,7 @@ mixin _$Gender {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -98,9 +117,12 @@ class __$MaleCopyWithImpl<$Res> extends _$GenderCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Male extends _Male {
   const _$_Male() : super._();
+
+  factory _$_Male.fromJson(Map<String, dynamic> json) =>
+      _$_$_MaleFromJson(json);
 
   @override
   bool operator ==(dynamic other) {
@@ -157,11 +179,18 @@ class _$_Male extends _Male {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_MaleToJson(this)..['runtimeType'] = 'male';
+  }
 }
 
 abstract class _Male extends Gender {
   const factory _Male() = _$_Male;
   const _Male._() : super._();
+
+  factory _Male.fromJson(Map<String, dynamic> json) = _$_Male.fromJson;
 }
 
 /// @nodoc
@@ -181,9 +210,12 @@ class __$FemaleCopyWithImpl<$Res> extends _$GenderCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Female extends _Female {
   const _$_Female() : super._();
+
+  factory _$_Female.fromJson(Map<String, dynamic> json) =>
+      _$_$_FemaleFromJson(json);
 
   @override
   bool operator ==(dynamic other) {
@@ -240,11 +272,18 @@ class _$_Female extends _Female {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_FemaleToJson(this)..['runtimeType'] = 'female';
+  }
 }
 
 abstract class _Female extends Gender {
   const factory _Female() = _$_Female;
   const _Female._() : super._();
+
+  factory _Female.fromJson(Map<String, dynamic> json) = _$_Female.fromJson;
 }
 
 /// @nodoc
@@ -264,9 +303,12 @@ class __$DiverseCopyWithImpl<$Res> extends _$GenderCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Diverse extends _Diverse {
   const _$_Diverse() : super._();
+
+  factory _$_Diverse.fromJson(Map<String, dynamic> json) =>
+      _$_$_DiverseFromJson(json);
 
   @override
   bool operator ==(dynamic other) {
@@ -323,9 +365,16 @@ class _$_Diverse extends _Diverse {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_DiverseToJson(this)..['runtimeType'] = 'diverse';
+  }
 }
 
 abstract class _Diverse extends Gender {
   const factory _Diverse() = _$_Diverse;
   const _Diverse._() : super._();
+
+  factory _Diverse.fromJson(Map<String, dynamic> json) = _$_Diverse.fromJson;
 }

@@ -1,13 +1,20 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:impftermin/application/personal_form/personal_form_state.dart';
+import 'package:impftermin/domain/person.dart';
 import 'package:impftermin/domain/value_unions.dart';
+import 'package:impftermin/model/shared_preferences_service.dart';
 
 final personalFormProvider =
-    StateNotifierProvider<PersonalFormStateNotifier, PersonalFormState>(
-        (ref) => PersonalFormStateNotifier());
+    StateNotifierProvider<PersonalFormStateNotifier, PersonalFormState>((ref) {
+  final service = ref.watch(sharedPreferencesServiceProvider);
+  return PersonalFormStateNotifier(service.getPersonalInformation(), service);
+});
 
 class PersonalFormStateNotifier extends StateNotifier<PersonalFormState> {
-  PersonalFormStateNotifier() : super(PersonalFormState.initial());
+  PersonalFormStateNotifier(Person? person, this.service)
+      : super(PersonalFormState.initial(person));
+
+  final SharedPreferencesService service;
 
   Future<void> firstNameChanged(String? value) async {
     state = state.copyWith(person: state.person.copyWith(firstName: value));
@@ -46,6 +53,7 @@ class PersonalFormStateNotifier extends StateNotifier<PersonalFormState> {
 
   Future<String?> _getCityByPostal(int? value) async {
     // TODO(jr): return city
+    return null;
   }
 
   Future<void> phoneChanged(int? value) async {
@@ -59,6 +67,8 @@ class PersonalFormStateNotifier extends StateNotifier<PersonalFormState> {
   Future<void> started() async {
     state.formKey.currentState?.save();
     state.formKey.currentState?.validate();
+
+    service.setPersonalInformation(state.person);
 
     state = state.copyWith(isRunning: true);
   }

@@ -15,10 +15,10 @@ class PersonalFormState with _$PersonalFormState {
     required Person person,
   }) = _PersonalFormState;
 
-  factory PersonalFormState.initial() => PersonalFormState(
+  factory PersonalFormState.initial(Person? person) => PersonalFormState(
       showErrorMessages: AutovalidateMode.disabled,
       formKey: GlobalKey<FormState>(),
       isRunning: false,
       executions: 0,
-      person: Person.initial());
+      person: person ?? Person.initial());
 }

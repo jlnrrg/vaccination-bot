@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:impftermin/domain/value_unions.dart';
 
 part 'person.freezed.dart';
+part 'person.g.dart';
 
 @freezed
 class Person with _$Person {
@@ -20,5 +19,9 @@ class Person with _$Person {
     int? phone,
   }) = _PersonalFormState;
 
-  factory Person.initial() => Person();
+  const Person._();
+
+  factory Person.initial() => const Person();
+
+  factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
 }

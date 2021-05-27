@@ -13,15 +13,12 @@ import 'package:impftermin/domain/value_unions.dart';
 import 'package:impftermin/generated/codegen_loader.g.dart';
 
 class GenderSelect extends HookWidget {
-  const GenderSelect({Key? key, this.initialValue}) : super(key: key);
-
-  final Gender? initialValue;
+  const GenderSelect({Key? key}) : super(key: key);
 
   Future<void> _showDialog(BuildContext context) {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        // TODO(jr): does not pop on back
         return SimpleDialog(
           title: Text(LocaleKeys.gender_select.tr()),
           children: <Widget>[
@@ -63,8 +60,11 @@ class GenderSelect extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final initialValue = useProvider(
+        personalFormProvider.select((value) => value.person.gender));
+
     return ListTile(
-        leading: initialValue == null ? null : Icon(initialValue!.toIcon()),
+        leading: initialValue == null ? null : Icon(initialValue.toIcon()),
         minLeadingWidth: 0,
         title: initialValue == null
             ? Text(LocaleKeys.gender_select.tr(),

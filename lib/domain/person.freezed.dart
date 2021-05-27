@@ -12,6 +12,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Person _$PersonFromJson(Map<String, dynamic> json) {
+  return _PersonalFormState.fromJson(json);
+}
+
 /// @nodoc
 class _$PersonTearOff {
   const _$PersonTearOff();
@@ -40,6 +44,10 @@ class _$PersonTearOff {
       phone: phone,
     );
   }
+
+  Person fromJson(Map<String, Object> json) {
+    return Person.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -58,6 +66,7 @@ mixin _$Person {
   String? get city => throw _privateConstructorUsedError;
   int? get phone => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PersonCopyWith<Person> get copyWith => throw _privateConstructorUsedError;
 }
@@ -250,8 +259,8 @@ class __$PersonalFormStateCopyWithImpl<$Res> extends _$PersonCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_PersonalFormState implements _PersonalFormState {
+@JsonSerializable()
+class _$_PersonalFormState extends _PersonalFormState {
   const _$_PersonalFormState(
       {this.email,
       this.birthday,
@@ -262,7 +271,11 @@ class _$_PersonalFormState implements _PersonalFormState {
       this.street,
       this.streetNr,
       this.city,
-      this.phone});
+      this.phone})
+      : super._();
+
+  factory _$_PersonalFormState.fromJson(Map<String, dynamic> json) =>
+      _$_$_PersonalFormStateFromJson(json);
 
   @override
   final String? email;
@@ -338,9 +351,14 @@ class _$_PersonalFormState implements _PersonalFormState {
   @override
   _$PersonalFormStateCopyWith<_PersonalFormState> get copyWith =>
       __$PersonalFormStateCopyWithImpl<_PersonalFormState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_PersonalFormStateToJson(this);
+  }
 }
 
-abstract class _PersonalFormState implements Person {
+abstract class _PersonalFormState extends Person {
   const factory _PersonalFormState(
       {String? email,
       DateTime? birthday,
@@ -352,6 +370,10 @@ abstract class _PersonalFormState implements Person {
       int? streetNr,
       String? city,
       int? phone}) = _$_PersonalFormState;
+  const _PersonalFormState._() : super._();
+
+  factory _PersonalFormState.fromJson(Map<String, dynamic> json) =
+      _$_PersonalFormState.fromJson;
 
   @override
   String? get email => throw _privateConstructorUsedError;

@@ -1,5 +1,6 @@
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -10,6 +11,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:impftermin/view/widgets/advanced_form.dart';
 import 'package:impftermin/view/widgets/fab.dart';
 import 'package:impftermin/view/settings/theme_data.dart';
+import 'package:impftermin/view/widgets/formfields/birthday_form.dart';
+import 'package:impftermin/view/widgets/formfields/postal_form.dart';
+import 'package:impftermin/view/widgets/settings_form.dart';
 
 class HomePage extends HookWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,31 +30,11 @@ class HomePage extends HookWidget {
 
     final List<Widget> widgetList = [
       Text(LocaleKeys.introduction.tr()),
-      FlatCard(
-          padding: defaultPadding,
-          child: TextFormField(
-            maxLength: 10,
-            keyboardType: TextInputType.datetime,
-            decoration: InputDecoration(
-              icon: const Icon(FontAwesomeIcons.birthdayCake),
-              labelText: LocaleKeys.birthday_label.tr(),
-              hintText: LocaleKeys.birthday_hint.tr(),
-              counterText: '',
-            ),
-          )),
-      FlatCard(
-          padding: defaultPadding,
-          child: TextFormField(
-            maxLength: 5,
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              icon: const Icon(FontAwesomeIcons.mapMarkerAlt),
-              labelText: LocaleKeys.postal_label.tr(),
-              hintText: LocaleKeys.postal_hint.tr(),
-              counterText: '',
-            ),
-          )),
+      FlatCard(padding: defaultPadding, child: const BirthdayForm()),
+      FlatCard(padding: defaultPadding, child: const PostalForm()),
       const FlatCard(child: AdvancedForm()),
+      const FlatCard(child: SettingsForm()),
+      SizedBox(height: 50)
     ];
 
     return SafeArea(

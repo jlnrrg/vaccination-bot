@@ -15,6 +15,7 @@ abstract class  LocaleKeys {
   static const postal_hint = 'postal.hint';
   static const postal = 'postal';
   static const advancedInformation = 'advancedInformation';
+  static const botSettings = 'botSettings';
   static const gender_term = 'gender.term';
   static const gender_select = 'gender.select';
   static const gender = 'gender';
