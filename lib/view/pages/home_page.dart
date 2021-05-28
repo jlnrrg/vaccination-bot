@@ -4,16 +4,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:impftermin/application/personal_form/personal_form_notifier.dart';
-import 'package:impftermin/view/components/flat_card.dart';
-import 'package:impftermin/generated/codegen_loader.g.dart';
+import 'package:vaccination_bot/application/personal_form/personal_form_notifier.dart';
+import 'package:vaccination_bot/view/components/flat_card.dart';
+import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:impftermin/view/widgets/advanced_form.dart';
-import 'package:impftermin/view/widgets/fab.dart';
-import 'package:impftermin/view/settings/theme_data.dart';
-import 'package:impftermin/view/widgets/formfields/birthday_form.dart';
-import 'package:impftermin/view/widgets/formfields/postal_form.dart';
-import 'package:impftermin/view/widgets/settings_form.dart';
+import 'package:vaccination_bot/view/widgets/advanced_form.dart';
+import 'package:vaccination_bot/view/widgets/fab.dart';
+import 'package:vaccination_bot/view/settings/theme_data.dart';
+import 'package:vaccination_bot/view/widgets/formfields/birthday_form.dart';
+import 'package:vaccination_bot/view/widgets/formfields/postal_form.dart';
+import 'package:vaccination_bot/view/widgets/settings_form.dart';
 
 class HomePage extends HookWidget {
   const HomePage({Key? key}) : super(key: key);

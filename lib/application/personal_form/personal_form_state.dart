@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:impftermin/domain/person.dart';
+import 'package:vaccination_bot/domain/person.dart';
 
 part 'personal_form_state.freezed.dart';
 

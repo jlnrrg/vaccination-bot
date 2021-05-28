@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:impftermin/application/personal_form/personal_form_state.dart';
-import 'package:impftermin/domain/person.dart';
-import 'package:impftermin/domain/value_unions.dart';
-import 'package:impftermin/model/shared_preferences_service.dart';
+import 'package:vaccination_bot/application/personal_form/personal_form_state.dart';
+import 'package:vaccination_bot/domain/person.dart';
+import 'package:vaccination_bot/domain/value_unions.dart';
+import 'package:vaccination_bot/model/shared_preferences_service.dart';
 
 final personalFormProvider =
     StateNotifierProvider<PersonalFormStateNotifier, PersonalFormState>((ref) {

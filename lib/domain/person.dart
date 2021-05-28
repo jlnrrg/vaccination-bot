@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:impftermin/domain/value_unions.dart';
+import 'package:vaccination_bot/domain/value_unions.dart';
 
 part 'person.freezed.dart';
 part 'person.g.dart';

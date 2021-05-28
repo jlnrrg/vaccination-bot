@@ -6,11 +6,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:impftermin/application/personal_form/personal_form_notifier.dart';
-import 'package:impftermin/domain/value_unions.dart';
+import 'package:vaccination_bot/application/personal_form/personal_form_notifier.dart';
+import 'package:vaccination_bot/domain/value_unions.dart';
 
 // 🌎 Project imports:
-import 'package:impftermin/generated/codegen_loader.g.dart';
+import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 
 class GenderSelect extends HookWidget {
   const GenderSelect({Key? key}) : super(key: key);

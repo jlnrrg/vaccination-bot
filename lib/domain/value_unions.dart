@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:impftermin/generated/codegen_loader.g.dart';
+import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 
 part 'value_unions.freezed.dart';
 part 'value_unions.g.dart';
