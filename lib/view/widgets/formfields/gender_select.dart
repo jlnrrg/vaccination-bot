@@ -1,4 +1,5 @@
 // 🐦 Flutter imports:
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 // 📦 Package imports:
@@ -30,7 +31,7 @@ class GenderSelect extends HookWidget {
                   await context
                       .read(personalFormProvider.notifier)
                       .genderChanged(const Gender.male());
-                  Navigator.of(context).pop();
+                  AutoRouter.of(context).pop();
                 }),
             ListTile(
                 visualDensity: VisualDensity.compact,
@@ -40,7 +41,7 @@ class GenderSelect extends HookWidget {
                   await context
                       .read(personalFormProvider.notifier)
                       .genderChanged(const Gender.female());
-                  Navigator.of(context).pop();
+                  AutoRouter.of(context).pop();
                 }),
             ListTile(
                 visualDensity: VisualDensity.compact,
@@ -50,7 +51,7 @@ class GenderSelect extends HookWidget {
                   await context
                       .read(personalFormProvider.notifier)
                       .genderChanged(const Gender.diverse());
-                  Navigator.of(context).pop();
+                  AutoRouter.of(context).pop();
                 }),
           ],
         );

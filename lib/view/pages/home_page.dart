@@ -1,4 +1,4 @@
-import 'package:day_night_switcher/day_night_switcher.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -8,6 +8,7 @@ import 'package:vaccination_bot/application/personal_form/personal_form_notifier
 import 'package:vaccination_bot/view/components/flat_card.dart';
 import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:vaccination_bot/view/router/router.dart';
 import 'package:vaccination_bot/view/widgets/advanced_form.dart';
 import 'package:vaccination_bot/view/widgets/fab.dart';
 import 'package:vaccination_bot/view/settings/theme_data.dart';
@@ -79,6 +80,17 @@ class HomePage extends HookWidget {
                       ])),
                 )),
             ]),
-            floatingActionButton: const FAB()));
+            floatingActionButton: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                FloatingActionButton(
+                    foregroundColor: Colors.white,
+                    onPressed: () =>
+                        AutoRouter.of(context).push(const WebViewPageRoute()),
+                    child: const Icon(FontAwesomeIcons.internetExplorer)),
+                const SizedBox(width: 10),
+                const FAB(),
+              ],
+            )));
   }
 }
