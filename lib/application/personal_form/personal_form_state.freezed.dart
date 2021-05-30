@@ -19,14 +19,10 @@ class _$PersonalFormStateTearOff {
   _PersonalFormState call(
       {required AutovalidateMode showErrorMessages,
       required GlobalKey<FormState> formKey,
-      required bool isRunning,
-      required int executions,
       required Person person}) {
     return _PersonalFormState(
       showErrorMessages: showErrorMessages,
       formKey: formKey,
-      isRunning: isRunning,
-      executions: executions,
       person: person,
     );
   }
@@ -39,8 +35,6 @@ const $PersonalFormState = _$PersonalFormStateTearOff();
 mixin _$PersonalFormState {
   AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
-  bool get isRunning => throw _privateConstructorUsedError;
-  int get executions => throw _privateConstructorUsedError;
   Person get person => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -56,8 +50,6 @@ abstract class $PersonalFormStateCopyWith<$Res> {
   $Res call(
       {AutovalidateMode showErrorMessages,
       GlobalKey<FormState> formKey,
-      bool isRunning,
-      int executions,
       Person person});
 
   $PersonCopyWith<$Res> get person;
@@ -76,8 +68,6 @@ class _$PersonalFormStateCopyWithImpl<$Res>
   $Res call({
     Object? showErrorMessages = freezed,
     Object? formKey = freezed,
-    Object? isRunning = freezed,
-    Object? executions = freezed,
     Object? person = freezed,
   }) {
     return _then(_value.copyWith(
@@ -89,14 +79,6 @@ class _$PersonalFormStateCopyWithImpl<$Res>
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormState>,
-      isRunning: isRunning == freezed
-          ? _value.isRunning
-          : isRunning // ignore: cast_nullable_to_non_nullable
-              as bool,
-      executions: executions == freezed
-          ? _value.executions
-          : executions // ignore: cast_nullable_to_non_nullable
-              as int,
       person: person == freezed
           ? _value.person
           : person // ignore: cast_nullable_to_non_nullable
@@ -122,8 +104,6 @@ abstract class _$PersonalFormStateCopyWith<$Res>
   $Res call(
       {AutovalidateMode showErrorMessages,
       GlobalKey<FormState> formKey,
-      bool isRunning,
-      int executions,
       Person person});
 
   @override
@@ -145,8 +125,6 @@ class __$PersonalFormStateCopyWithImpl<$Res>
   $Res call({
     Object? showErrorMessages = freezed,
     Object? formKey = freezed,
-    Object? isRunning = freezed,
-    Object? executions = freezed,
     Object? person = freezed,
   }) {
     return _then(_PersonalFormState(
@@ -158,14 +136,6 @@ class __$PersonalFormStateCopyWithImpl<$Res>
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormState>,
-      isRunning: isRunning == freezed
-          ? _value.isRunning
-          : isRunning // ignore: cast_nullable_to_non_nullable
-              as bool,
-      executions: executions == freezed
-          ? _value.executions
-          : executions // ignore: cast_nullable_to_non_nullable
-              as int,
       person: person == freezed
           ? _value.person
           : person // ignore: cast_nullable_to_non_nullable
@@ -180,8 +150,6 @@ class _$_PersonalFormState implements _PersonalFormState {
   const _$_PersonalFormState(
       {required this.showErrorMessages,
       required this.formKey,
-      required this.isRunning,
-      required this.executions,
       required this.person});
 
   @override
@@ -189,15 +157,11 @@ class _$_PersonalFormState implements _PersonalFormState {
   @override
   final GlobalKey<FormState> formKey;
   @override
-  final bool isRunning;
-  @override
-  final int executions;
-  @override
   final Person person;
 
   @override
   String toString() {
-    return 'PersonalFormState(showErrorMessages: $showErrorMessages, formKey: $formKey, isRunning: $isRunning, executions: $executions, person: $person)';
+    return 'PersonalFormState(showErrorMessages: $showErrorMessages, formKey: $formKey, person: $person)';
   }
 
   @override
@@ -210,12 +174,6 @@ class _$_PersonalFormState implements _PersonalFormState {
             (identical(other.formKey, formKey) ||
                 const DeepCollectionEquality()
                     .equals(other.formKey, formKey)) &&
-            (identical(other.isRunning, isRunning) ||
-                const DeepCollectionEquality()
-                    .equals(other.isRunning, isRunning)) &&
-            (identical(other.executions, executions) ||
-                const DeepCollectionEquality()
-                    .equals(other.executions, executions)) &&
             (identical(other.person, person) ||
                 const DeepCollectionEquality().equals(other.person, person)));
   }
@@ -225,8 +183,6 @@ class _$_PersonalFormState implements _PersonalFormState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(formKey) ^
-      const DeepCollectionEquality().hash(isRunning) ^
-      const DeepCollectionEquality().hash(executions) ^
       const DeepCollectionEquality().hash(person);
 
   @JsonKey(ignore: true)
@@ -239,18 +195,12 @@ abstract class _PersonalFormState implements PersonalFormState {
   const factory _PersonalFormState(
       {required AutovalidateMode showErrorMessages,
       required GlobalKey<FormState> formKey,
-      required bool isRunning,
-      required int executions,
       required Person person}) = _$_PersonalFormState;
 
   @override
   AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   @override
   GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
-  @override
-  bool get isRunning => throw _privateConstructorUsedError;
-  @override
-  int get executions => throw _privateConstructorUsedError;
   @override
   Person get person => throw _privateConstructorUsedError;
   @override

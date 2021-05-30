@@ -92,8 +92,9 @@ class _WebViewPageState extends State<WebViewPage> {
                 InAppWebView(
                   key: webViewKey,
                   pullToRefreshController: pullToRefreshController,
-                  initialUrlRequest:
-                      URLRequest(url: Uri.parse('https://github.com/flutter')),
+                  initialUrlRequest: URLRequest(
+                      url: Uri.parse(
+                          'https://www.impfportal-niedersachsen.de/portal/#/appointment/public')),
                   onWebViewCreated: (controller) {
                     webViewController = controller;
                   },

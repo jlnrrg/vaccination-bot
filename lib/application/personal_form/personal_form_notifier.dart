@@ -60,16 +60,10 @@ class PersonalFormStateNotifier extends StateNotifier<PersonalFormState> {
     state = state.copyWith(person: state.person.copyWith(phone: value));
   }
 
-  Future<void> stopped() async {
-    state = state.copyWith(isRunning: false);
-  }
-
-  Future<void> started() async {
-    state.formKey.currentState?.save();
+  Future<void> saved() async {
     state.formKey.currentState?.validate();
+    state.formKey.currentState?.save();
 
     service.setPersonalInformation(state.person);
-
-    state = state.copyWith(isRunning: true);
   }
 }

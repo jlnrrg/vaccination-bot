@@ -5,11 +5,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:vaccination_bot/application/personal_form/personal_form_notifier.dart';
 import 'package:vaccination_bot/generated/codegen_loader.g.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class BirthdayForm extends HookWidget {
   const BirthdayForm({Key? key}) : super(key: key);
 
   DateFormat get dateFormat => DateFormat('dd.MM.yyyy');
+
+  MaskTextInputFormatter get maskFormatter => MaskTextInputFormatter(
+      mask: '##.##.####', filter: {"#": RegExp(r'[0-9]')});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +23,7 @@ class BirthdayForm extends HookWidget {
     return TextFormField(
         initialValue: birthday != null ? dateFormat.format(birthday) : null,
         maxLength: 10,
+        inputFormatters: [maskFormatter],
         keyboardType: TextInputType.datetime,
         decoration: InputDecoration(
           icon: const Icon(FontAwesomeIcons.birthdayCake),

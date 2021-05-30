@@ -1,20 +1,22 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:readmore/readmore.dart';
+import 'package:vaccination_bot/application/bot_settings_form/bot_settings_form_notifier.dart';
 import 'package:vaccination_bot/application/personal_form/personal_form_notifier.dart';
 import 'package:vaccination_bot/view/components/flat_card.dart';
 import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:vaccination_bot/view/router/router.dart';
-import 'package:vaccination_bot/view/widgets/advanced_form.dart';
+import 'package:vaccination_bot/view/widgets/personal/advanced_form.dart';
 import 'package:vaccination_bot/view/widgets/fab.dart';
 import 'package:vaccination_bot/view/settings/theme_data.dart';
-import 'package:vaccination_bot/view/widgets/formfields/birthday_form.dart';
-import 'package:vaccination_bot/view/widgets/formfields/postal_form.dart';
-import 'package:vaccination_bot/view/widgets/settings_form.dart';
+import 'package:vaccination_bot/view/widgets/personal/formfields/birthday_form.dart';
+import 'package:vaccination_bot/view/widgets/personal/formfields/postal_form.dart';
+import 'package:vaccination_bot/view/widgets/loading.dart';
+import 'package:vaccination_bot/view/widgets/botSettings/settings_form.dart';
 
 class HomePage extends HookWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,20 +25,15 @@ class HomePage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = useProvider(personalFormProvider);
-    final AutovalidateMode autovalidateMode = state.showErrorMessages;
-    final GlobalKey<FormState> formKey = state.formKey;
-    final bool isRunning = state.isRunning;
-    final int executions = state.executions;
+    final AutovalidateMode autovalidateModePersonal = useProvider(
+        personalFormProvider.select((value) => value.showErrorMessages));
+    final GlobalKey<FormState> formKeyPersonal =
+        useProvider(personalFormProvider.select((value) => value.formKey));
 
-    final List<Widget> widgetList = [
-      Text(LocaleKeys.introduction.tr()),
-      FlatCard(padding: defaultPadding, child: const BirthdayForm()),
-      FlatCard(padding: defaultPadding, child: const PostalForm()),
-      const FlatCard(child: AdvancedForm()),
-      const FlatCard(child: SettingsForm()),
-      SizedBox(height: 50)
-    ];
+    final AutovalidateMode autovalidateModeBotSettings = useProvider(
+        botSettingsProvider.select((value) => value.showErrorMessages));
+    final GlobalKey<FormState> formKeyBotSettings =
+        useProvider(botSettingsProvider.select((value) => value.formKey));
 
     return SafeArea(
         child: Scaffold(
@@ -58,27 +55,42 @@ class HomePage extends HookWidget {
               ],
             ),
             body: Stack(children: [
-              Form(
-                  key: formKey,
-                  autovalidateMode: autovalidateMode,
-                  child: ListView.separated(
-                      padding: const EdgeInsets.all(20),
-                      itemBuilder: (context, index) => widgetList[index],
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(height: 10),
-                      itemCount: widgetList.length)),
-              if (isRunning)
-                Center(
-                    child: Material(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Theme.of(context).canvasColor,
-                  child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Column(mainAxisSize: MainAxisSize.min, children: [
-                        const CircularProgressIndicator(),
-                        if (executions > 0) Text(executions.toString()),
-                      ])),
-                )),
+              ListView(
+                padding: const EdgeInsets.all(20),
+                children: [
+                  ReadMoreText(LocaleKeys.introduction.tr(),
+                      trimLines: 2,
+                      trimMode: TrimMode.Line,
+                      trimCollapsedText: LocaleKeys.readmoretext_more.tr(),
+                      trimExpandedText: LocaleKeys.readmoretext_less.tr(),
+                      style: Theme.of(context).textTheme.bodyText2),
+                  const SizedBox(height: 20),
+                  Form(
+                    key: formKeyPersonal,
+                    autovalidateMode: autovalidateModePersonal,
+                    child: Column(
+                      children: [
+                        FlatCard(
+                            padding: defaultPadding,
+                            child: const BirthdayForm()),
+                        const SizedBox(height: 20),
+                        FlatCard(
+                            padding: defaultPadding, child: const PostalForm()),
+                        const SizedBox(height: 20),
+                        const FlatCard(child: AdvancedForm()),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Form(
+                    key: formKeyBotSettings,
+                    autovalidateMode: autovalidateModeBotSettings,
+                    child: const FlatCard(child: SettingsForm()),
+                  ),
+                  const SizedBox(height: 70),
+                ],
+              ),
+              const Loading(),
             ]),
             floatingActionButton: Row(
               mainAxisSize: MainAxisSize.min,

@@ -34,5 +34,20 @@ abstract class  LocaleKeys {
   static const phone_label = 'phone.label';
   static const phone_hint = 'phone.hint';
   static const phone = 'phone';
+  static const botSettingsLabel_afterRequest = 'botSettingsLabel.afterRequest';
+  static const botSettingsLabel_afterSuccess = 'botSettingsLabel.afterSuccess';
+  static const botSettingsLabel_afterFailedRequest = 'botSettingsLabel.afterFailedRequest';
+  static const botSettingsLabel_afterIpBan = 'botSettingsLabel.afterIpBan';
+  static const botSettingsLabel_jitter = 'botSettingsLabel.jitter';
+  static const botSettingsLabel_userAgent = 'botSettingsLabel.userAgent';
+  static const botSettingsLabel = 'botSettingsLabel';
+  static const units_seconds = 'units.seconds';
+  static const units = 'units';
+  static const loadingExecutions = 'loadingExecutions';
+  static const backgroundExec_title = 'backgroundExec.title';
+  static const backgroundExec_text = 'backgroundExec.text';
+  static const backgroundExec = 'backgroundExec';
+  static const readmoretext_more = 'readmoretext_more';
+  static const readmoretext_less = 'readmoretext_less';
 
 }

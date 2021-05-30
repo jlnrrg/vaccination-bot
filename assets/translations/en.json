@@ -43,5 +43,30 @@
     "phone": {
         "label": "Phone",
         "hint": "015141639413"
-    }
+    },
+    "botSettingsLabel": {
+        "afterRequest": "Delay after request",
+        "afterSuccess": "Delay after success",
+        "afterFailedRequest": "Delay after failed request",
+        "afterIpBan": "Delay after IP ban",
+        "jitter": "Random delay (against bot recognition)",
+        "userAgent": "User Agent"
+    },
+    "units": {
+        "seconds": "sec"
+    },
+    "loadingExecutions": {
+        "zero": "Execution: {}",
+        "one": "Execution: {}",
+        "two": "Executions: {}",
+        "few": "Executions: {}",
+        "many": "Executions: {}",
+        "other": "Executions: {}"
+    },
+    "backgroundExec": {
+        "title": "flutter_background example app",
+        "text": "Background notification for keeping the example app running in the background"
+    },
+    "readmoretext_more": "Show more",
+    "readmoretext_less": "Show less"
 }

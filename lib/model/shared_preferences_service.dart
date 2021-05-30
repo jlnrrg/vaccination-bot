@@ -1,6 +1,7 @@
 // 📦 Package imports:
 import 'dart:convert';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:vaccination_bot/domain/bot_settings.dart';
 import 'package:vaccination_bot/domain/person.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,6 +14,7 @@ class SharedPreferencesService {
   final SharedPreferences sharedPreferences;
 
   static const String personalInformationKey = 'personalInformation';
+  static const String botSettingsKey = 'botSettings';
 
   Future<void> setPersonalInformation(Person person) async {
     final map = person.toJson();
@@ -25,6 +27,21 @@ class SharedPreferencesService {
       // ignore: avoid_as
       final map = jsonDecode(data) as Map<String, dynamic>;
       return Person.fromJson(map);
+    }
+    return null;
+  }
+
+  Future<void> setBotSettings(BotSettings botSettings) async {
+    final map = botSettings.toJson();
+    await sharedPreferences.setString(botSettingsKey, jsonEncode(map));
+  }
+
+  BotSettings? getBotSettings() {
+    final data = sharedPreferences.getString(botSettingsKey);
+    if (data != null) {
+      // ignore: avoid_as
+      final map = jsonDecode(data) as Map<String, dynamic>;
+      return BotSettings.fromJson(map);
     }
     return null;
   }

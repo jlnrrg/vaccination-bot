@@ -24,6 +24,8 @@ dependencies:
   freezed: ^0.14.2
   google_fonts: ^2.1.0
   hooks_riverpod: ^0.14.0+4
+  mask_text_input_formatter: ^2.0.0
+  readmore: ^2.0.0
   shared_preferences: ^2.0.6
 
 dev_dependencies:
