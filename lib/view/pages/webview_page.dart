@@ -54,6 +54,12 @@ class _WebViewPageState extends State<WebViewPage> {
     super.dispose();
   }
 
+  Future<void> runJS() async {
+    final js = await DefaultAssetBundle.of(context)
+        .loadString('assets/automatisation.js');
+    webViewController?.evaluateJavascript(source: js);
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -61,6 +67,9 @@ class _WebViewPageState extends State<WebViewPage> {
         child: SafeArea(
           child: Scaffold(
               appBar: AppBar(title: Text('WebView'), actions: [
+                IconButton(
+                    onPressed: () => runJS(),
+                    icon: const Icon(FontAwesomeIcons.scroll)),
                 FutureBuilder(
                     future: webViewController?.canGoBack(),
                     builder:
