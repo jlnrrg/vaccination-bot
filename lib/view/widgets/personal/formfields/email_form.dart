@@ -15,6 +15,7 @@ class EmailForm extends HookWidget {
         useProvider(personalFormProvider.select((value) => value.person.email));
     return TextFormField(
       initialValue: email,
+      keyboardType: TextInputType.datetime,
       decoration: InputDecoration(
           isDense: true,
           filled: false,

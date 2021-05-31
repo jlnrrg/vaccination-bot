@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:vaccination_bot/application/background/background_task_notifier.dart';
 
 class WebViewPage extends StatefulWidget {
   const WebViewPage({Key? key}) : super(key: key);
@@ -55,9 +57,10 @@ class _WebViewPageState extends State<WebViewPage> {
   }
 
   Future<void> runJS() async {
-    final js = await DefaultAssetBundle.of(context)
-        .loadString('assets/automatisation.js');
-    webViewController?.evaluateJavascript(source: js);
+    final js = await context.read(backgroundTaskProvider.notifier).getJS();
+    if (js != null) {
+      webViewController?.evaluateJavascript(source: js);
+    }
   }
 
   @override

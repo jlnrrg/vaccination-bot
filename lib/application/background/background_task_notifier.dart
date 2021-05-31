@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter_background/flutter_background.dart';
@@ -146,6 +147,13 @@ class BackgroundTaskStateNotifier extends StateNotifier<AsyncValue<int>?> {
 
   Future<void> _appToForeground() async {
     onSuccess();
+  }
+
+  Future<String?> getJS() async {
+    final js = await rootBundle.loadString('assets/automatisation.js');
+    final vars = personalState.person.toJSVars();
+    final text = [vars, js].join('\n');
+    return text;
   }
 
   @override
