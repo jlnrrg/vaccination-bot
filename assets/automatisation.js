@@ -40,19 +40,19 @@ function waitForElementToDisplay(
   })();
 }
 
-waitForElementToDisplay(
-  'input[name="datenschutz"]',
-  function () {},
-  1000,
-  9000
-);
+// waitForElementToDisplay(
+//   'input[name="datenschutz"]',
+//   function () {},
+//   1000,
+//   9000
+// );
 document.querySelector('input[name="datenschutz"]').click();
 
 getElementByXPath("//button[@type='button' and span[.=' Weiter ']]").click();
 
 getElementByXPath("//button[@type='button' and span[.=' Weiter ']]").click();
 
-waitForElementToDisplay('input[id="mat-input-2"]', function () {}, 1000, 9000);
+// waitForElementToDisplay('input[id="mat-input-2"]', function () {}, 1000, 9000);
 document.querySelector('input[id="mat-input-2"]').value = birthday;
 document
   .querySelector('input[id="mat-input-2"]')
@@ -60,26 +60,26 @@ document
 
 getElementByXPath("//button[@type='button' and span[.=' Weiter ']]").click();
 
-waitForElementToDisplay(
-  'input[id="mat-radio-2-input"]',
-  function () {},
-  1000,
-  9000
-);
+// waitForElementToDisplay(
+//   'input[id="mat-radio-2-input"]',
+//   function () {},
+//   1000,
+//   9000
+// );
 document.querySelector('input[id="mat-radio-2-input"]').click();
 
 // popup
-waitForElementToDisplay(
-  "//button[@type='button' and span[.='Verstanden']]",
-  function () {},
-  1000,
-  9000
-);
+// waitForElementToDisplay(
+//   "//button[@type='button' and span[.='Verstanden']]",
+//   function () {},
+//   1000,
+//   9000
+// );
 getElementByXPath("//button[@type='button' and span[.='Verstanden']]").click();
 getElementByXPath("//button[@type='button' and span[.=' Weiter ']]").click();
 getElementByXPath("//button[@type='button' and span[.=' Weiter ']]").click();
 
-waitForElementToDisplay('input[id="mat-input-0"]', function () {}, 1000, 9000);
+// waitForElementToDisplay('input[id="mat-input-0"]', function () {}, 1000, 9000);
 document.querySelector('input[id="mat-input-0"]').value = postal;
 document
   .querySelector('input[id="mat-input-0"]')
@@ -109,7 +109,7 @@ document
   .dispatchEvent(new Event("input"));
 
 // postal
-document.querySelector('input[id="mat-input-10"]').value = postal;
+// document.querySelector('input[id="mat-input-10"]').value = postal;
 
 document
   .querySelector('input[id="mat-input-10"]')
@@ -136,10 +136,10 @@ setTimeout(function () {
     .dispatchEvent(new Event("input"));
 
   // birthday
-  document.querySelector('input[id="mat-input-13"]').value = birthday;
-  document
-    .querySelector('input[id="mat-input-13"]')
-    .dispatchEvent(new Event("input"));
+  // document.querySelector('input[id="mat-input-13"]').value = birthday;
+  // document
+  //   .querySelector('input[id="mat-input-13"]')
+  //   .dispatchEvent(new Event("input"));
 
   // phone
   document.querySelector('input[id="mat-input-14"]').value = phone;
