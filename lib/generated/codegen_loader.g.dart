@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const homePageTitle = 'homePageTitle';
   static const webviewPageTitle = 'webviewPageTitle';
   static const introduction = 'introduction';
@@ -37,7 +37,8 @@ abstract class  LocaleKeys {
   static const phone = 'phone';
   static const botSettingsLabel_afterRequest = 'botSettingsLabel.afterRequest';
   static const botSettingsLabel_afterSuccess = 'botSettingsLabel.afterSuccess';
-  static const botSettingsLabel_afterFailedRequest = 'botSettingsLabel.afterFailedRequest';
+  static const botSettingsLabel_afterFailedRequest =
+      'botSettingsLabel.afterFailedRequest';
   static const botSettingsLabel_afterIpBan = 'botSettingsLabel.afterIpBan';
   static const botSettingsLabel_jitter = 'botSettingsLabel.jitter';
   static const botSettingsLabel_userAgent = 'botSettingsLabel.userAgent';
@@ -64,5 +65,4 @@ abstract class  LocaleKeys {
   static const valueFailure_dateTimeInFuture = 'valueFailure.dateTimeInFuture';
   static const valueFailure_unexpected = 'valueFailure.unexpected';
   static const valueFailure = 'valueFailure';
-
 }
