@@ -30,8 +30,8 @@ jobs:
       - name: Analyze dart code for errors
         run: flutter analyze .
 
-      - name: Run tests
-        run: flutter test
+      # - name: Run tests
+      #   run: flutter test
 
       - name: Build Android apk
         run: flutter build apk --split-per-abi
