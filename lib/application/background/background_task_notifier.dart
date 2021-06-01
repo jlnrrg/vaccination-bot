@@ -161,6 +161,8 @@ class BackgroundTaskStateNotifier extends StateNotifier<AsyncValue<int>?> {
           state = null;
         });
       }
+    } else {
+      await stopped();
     }
   }
 
