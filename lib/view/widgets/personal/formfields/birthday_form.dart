@@ -14,7 +14,7 @@ class BirthdayForm extends HookWidget {
   DateFormat get dateFormat => DateFormat('dd.MM.yyyy');
 
   MaskTextInputFormatter get maskFormatter => MaskTextInputFormatter(
-      mask: '##.##.####', filter: {"#": RegExp(r'[0-9]')});
+      mask: '##.##.####', filter: {'#': RegExp(r'[0-9]')});
 
   @override
   Widget build(BuildContext context) {

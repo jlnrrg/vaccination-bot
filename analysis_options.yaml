@@ -46,8 +46,6 @@ analyzer:
     - "lib/model/service/graphql/graphql_api.graphql.dart"
     - "graphql/dgraph.graphqls"
 
-include: package:lint/analysis_options.yaml
-
 linter:
   rules:
     # these rules are documented on and in the same order as
@@ -60,7 +58,7 @@ linter:
     # - always_specify_types
     - annotate_overrides
     # - avoid_annotating_with_dynamic # conflicts with always_specify_types
-    - avoid_as
+    # - avoid_as
     # - avoid_bool_literals_in_conditional_expressions # not yet tested
     # - avoid_catches_without_on_clauses # we do this commonly
     # - avoid_catching_errors # we do this commonly
@@ -158,7 +156,7 @@ linter:
     - recursive_getters
     - slash_for_doc_comments
     - sort_constructors_first
-    - sort_pub_dependencies
+    # - sort_pub_dependencies
     - sort_unnamed_constructors_first
     # - super_goes_last # no longer needed w/ Dart 2
     - test_types_in_equals

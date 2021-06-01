@@ -1,5 +1,4 @@
 // 📦 Package imports:
-import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:vaccination_bot/generated/codegen_loader.g.dart';
@@ -19,11 +18,11 @@ class NotificationService {
 // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
-    final IOSInitializationSettings initializationSettingsIOS =
+    const IOSInitializationSettings initializationSettingsIOS =
         IOSInitializationSettings(onDidReceiveLocalNotification: null);
     const MacOSInitializationSettings initializationSettingsMacOS =
         MacOSInitializationSettings();
-    return InitializationSettings(
+    return const InitializationSettings(
         android: initializationSettingsAndroid,
         iOS: initializationSettingsIOS,
         macOS: initializationSettingsMacOS);

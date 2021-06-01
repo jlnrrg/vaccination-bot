@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,7 +9,6 @@ import 'package:vaccination_bot/application/personal_form/personal_form_notifier
 import 'package:vaccination_bot/view/components/flat_card.dart';
 import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:vaccination_bot/view/router/router.dart';
 import 'package:vaccination_bot/view/widgets/modal/modal_fit.dart';
 import 'package:vaccination_bot/view/widgets/personal/advanced_form.dart';
 import 'package:vaccination_bot/view/widgets/fab.dart';
@@ -43,7 +41,7 @@ class HomePage extends HookWidget {
         child: Scaffold(
             key: homepageScaffoldKey,
             appBar: AppBar(
-              title: Text(LocaleKeys.appBarTitle.tr()),
+              title: Text(LocaleKeys.homePageTitle.tr()),
               actions: [
                 Consumer(
                     builder: (BuildContext context, ScopedReader watch, _) {

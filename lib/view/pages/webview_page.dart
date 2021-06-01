@@ -1,11 +1,12 @@
 import 'dart:collection';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:vaccination_bot/application/background/background_task_notifier.dart';
+import 'package:vaccination_bot/generated/codegen_loader.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class WebViewPage extends StatefulWidget {
   const WebViewPage({Key? key}) : super(key: key);
@@ -75,37 +76,40 @@ class _WebViewPageState extends State<WebViewPage> {
         onWillPop: () async => true,
         child: SafeArea(
           child: Scaffold(
-              appBar: AppBar(title: Text('WebView'), actions: [
-                IconButton(
-                    onPressed: () => runJS(),
-                    icon: const Icon(FontAwesomeIcons.scroll)),
-                FutureBuilder(
-                    future: webViewController?.canGoBack(),
-                    builder:
-                        (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                      if (snapshot.hasData && snapshot.data!) {
-                        return IconButton(
-                            icon: const Icon(FontAwesomeIcons.angleLeft),
-                            onPressed: () => webViewController?.goBack());
-                      }
-                      return const IconButton(
-                          icon: Icon(FontAwesomeIcons.angleLeft),
-                          onPressed: null);
-                    }),
-                FutureBuilder(
-                    future: webViewController?.canGoForward(),
-                    builder:
-                        (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                      if (snapshot.hasData && snapshot.data!) {
-                        return IconButton(
-                            icon: const Icon(FontAwesomeIcons.angleRight),
-                            onPressed: () => webViewController?.goForward());
-                      }
-                      return const IconButton(
-                          icon: Icon(FontAwesomeIcons.angleRight),
-                          onPressed: null);
-                    }),
-              ]),
+              appBar: AppBar(
+                  title: Text(LocaleKeys.webviewPageTitle.tr()),
+                  actions: [
+                    IconButton(
+                        onPressed: () => runJS(),
+                        icon: const Icon(FontAwesomeIcons.scroll)),
+                    FutureBuilder(
+                        future: webViewController?.canGoBack(),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<bool> snapshot) {
+                          if (snapshot.hasData && snapshot.data!) {
+                            return IconButton(
+                                icon: const Icon(FontAwesomeIcons.angleLeft),
+                                onPressed: () => webViewController?.goBack());
+                          }
+                          return const IconButton(
+                              icon: Icon(FontAwesomeIcons.angleLeft),
+                              onPressed: null);
+                        }),
+                    FutureBuilder(
+                        future: webViewController?.canGoForward(),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<bool> snapshot) {
+                          if (snapshot.hasData && snapshot.data!) {
+                            return IconButton(
+                                icon: const Icon(FontAwesomeIcons.angleRight),
+                                onPressed: () =>
+                                    webViewController?.goForward());
+                          }
+                          return const IconButton(
+                              icon: Icon(FontAwesomeIcons.angleRight),
+                              onPressed: null);
+                        }),
+                  ]),
               body: Stack(children: [
                 FutureBuilder<String?>(
                     future: script,

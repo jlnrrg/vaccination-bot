@@ -7,7 +7,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/after_failed_request_form.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/after_ip_ban_form.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/after_request_form.dart';
-import 'package:vaccination_bot/view/widgets/botSettings/formFields/after_success_form.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/jitter_form.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/user_agent_form.dart';
 
@@ -55,13 +54,13 @@ class _Expanded extends HookWidget {
       Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
           child: FocusScope(
-              child: Column(children: [
-            const JitterForm(),
-            const AfterRequestForm(),
-            // const AfterSuccessForm(),
-            const AfterFailedRequestForm(),
-            const AfterIpBanForm(),
-            const UserAgentForm(),
+              child: Column(children: const [
+            JitterForm(),
+            AfterRequestForm(),
+            // AfterSuccessForm(),
+            AfterFailedRequestForm(),
+            AfterIpBanForm(),
+            UserAgentForm(),
           ])))
     ]);
   }

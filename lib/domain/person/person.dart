@@ -31,7 +31,7 @@ class Person with _$Person {
   factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
 
   String toJSVars() {
-    DateFormat dateFormat = DateFormat('dd.MM.yyyy');
+    final DateFormat dateFormat = DateFormat('dd.MM.yyyy');
 
     final birthdayLocal = birthday?.getOrNull();
     final postalLocal = postal?.getOrNull();

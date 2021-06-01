@@ -1,7 +1,8 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
 abstract class  LocaleKeys {
-  static const appBarTitle = 'appBarTitle';
+  static const homePageTitle = 'homePageTitle';
+  static const webviewPageTitle = 'webviewPageTitle';
   static const introduction = 'introduction';
   static const stopProcess = 'stopProcess';
   static const startProcess = 'startProcess';
