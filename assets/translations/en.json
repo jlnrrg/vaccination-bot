@@ -68,5 +68,22 @@
         "text": "Background notification for keeping the example app running in the background"
     },
     "readmoretext_more": "Show more",
-    "readmoretext_less": "Show less"
+    "readmoretext_less": "Show less",
+    "modal": {
+        "notification": "Test the notification",
+        "webview": "Show the website",
+        "backgroundTest": "Test the background task without fetching"
+    },
+    "notification": {
+        "title": "An open appointment has been found",
+        "body": "Be fast and safe your vaccination appointment"
+    },
+    "valueFailure": {
+        "isNull": "Input must be valid",
+        "empty": "Input must not be empty",
+        "exceedingLength": "Input must not exceed length",
+        "subceedingLength": "Input must not subceed length",
+        "dateTimeInFuture": "Input must not be in the Future",
+        "unexpected": "An unexpected error occured"
+    }
 }

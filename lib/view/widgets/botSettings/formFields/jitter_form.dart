@@ -11,6 +11,7 @@ class JitterForm extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FocusNode _node = useFocusNode();
     final jitter = useProvider(
         botSettingsProvider.select((value) => value.settings.jitter));
     return TextFormField(
@@ -26,6 +27,9 @@ class JitterForm extends HookWidget {
       onSaved: (String? value) => context
           .read(botSettingsProvider.notifier)
           .jitterChanged(value != null ? int.tryParse(value) : null),
+      textInputAction: TextInputAction.next,
+      onEditingComplete: () => _node.nextFocus(),
+      focusNode: _node,
     );
   }
 }

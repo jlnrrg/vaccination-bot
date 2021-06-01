@@ -56,13 +56,14 @@ class _Expanded extends HookWidget {
       const GenderSelect(),
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-        child: Column(children: const [
+        child: FocusScope(
+            child: Column(children: const [
           FirstnameForm(),
           LastnameForm(),
           StreetForm(),
           PhoneForm(),
           EmailForm()
-        ]),
+        ])),
       ),
     ]);
   }

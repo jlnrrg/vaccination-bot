@@ -54,14 +54,15 @@ class _Expanded extends HookWidget {
       const _ListTile(),
       Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-          child: Column(children: [
+          child: FocusScope(
+              child: Column(children: [
             const JitterForm(),
             const AfterRequestForm(),
             // const AfterSuccessForm(),
             const AfterFailedRequestForm(),
             const AfterIpBanForm(),
             const UserAgentForm(),
-          ]))
+          ])))
     ]);
   }
 }

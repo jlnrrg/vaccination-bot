@@ -35,11 +35,18 @@ class FAB extends HookWidget {
             foregroundColor: Colors.white,
             tooltip: LocaleKeys.startProcess.tr(),
             onPressed: () async {
+              FocusScope.of(context).unfocus();
               await context.read(personalFormProvider.notifier).saved();
-              await context.read(botSettingsProvider.notifier).saved();
-              await context.read(backgroundTaskProvider.notifier).started(
-                    () => AutoRouter.of(context).push(const WebViewPageRoute()),
-                  );
+              if (context
+                  .read(personalFormProvider)
+                  .saveFailureOrSuccessOption
+                  .isNone()) {
+                await context.read(botSettingsProvider.notifier).saved();
+                await context.read(backgroundTaskProvider.notifier).started(
+                      () =>
+                          AutoRouter.of(context).push(const WebViewPageRoute()),
+                    );
+              }
             },
             child: const Icon(FontAwesomeIcons.check),
           );

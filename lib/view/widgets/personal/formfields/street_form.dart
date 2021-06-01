@@ -12,6 +12,8 @@ class StreetForm extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FocusNode _node1 = useFocusNode();
+    final FocusNode _node2 = useFocusNode();
     final street = useProvider(
         personalFormProvider.select((value) => value.person.street));
 
@@ -33,6 +35,9 @@ class StreetForm extends HookWidget {
               onSaved: (String? value) => context
                   .read(personalFormProvider.notifier)
                   .streetChanged(value),
+              textInputAction: TextInputAction.next,
+              onEditingComplete: () => _node1.nextFocus(),
+              focusNode: _node1,
             )),
         const SizedBox(width: 20),
         // street nr
@@ -50,6 +55,9 @@ class StreetForm extends HookWidget {
               onSaved: (String? value) => context
                   .read(personalFormProvider.notifier)
                   .streetNrChanged(value != null ? int.tryParse(value) : null),
+              textInputAction: TextInputAction.next,
+              onEditingComplete: () => _node2.nextFocus(),
+              focusNode: _node2,
             )),
       ],
     );

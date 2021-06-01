@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vaccination_bot/domain/bot_settings.dart';
-import 'package:vaccination_bot/domain/person.dart';
+import 'package:vaccination_bot/domain/person/person.dart';
 
 part 'bot_settings_form_state.freezed.dart';
 

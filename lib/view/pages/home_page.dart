@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:readmore/readmore.dart';
 import 'package:vaccination_bot/application/bot_settings_form/bot_settings_form_notifier.dart';
 import 'package:vaccination_bot/application/personal_form/personal_form_notifier.dart';
@@ -10,6 +11,7 @@ import 'package:vaccination_bot/view/components/flat_card.dart';
 import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:vaccination_bot/view/router/router.dart';
+import 'package:vaccination_bot/view/widgets/modal/modal_fit.dart';
 import 'package:vaccination_bot/view/widgets/personal/advanced_form.dart';
 import 'package:vaccination_bot/view/widgets/fab.dart';
 import 'package:vaccination_bot/view/settings/theme_data.dart';
@@ -17,6 +19,8 @@ import 'package:vaccination_bot/view/widgets/personal/formfields/birthday_form.d
 import 'package:vaccination_bot/view/widgets/personal/formfields/postal_form.dart';
 import 'package:vaccination_bot/view/widgets/loading.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/settings_form.dart';
+
+final homepageScaffoldKey = GlobalKey<ScaffoldState>();
 
 class HomePage extends HookWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -37,6 +41,7 @@ class HomePage extends HookWidget {
 
     return SafeArea(
         child: Scaffold(
+            key: homepageScaffoldKey,
             appBar: AppBar(
               title: Text(LocaleKeys.appBarTitle.tr()),
               actions: [
@@ -97,9 +102,13 @@ class HomePage extends HookWidget {
               children: [
                 FloatingActionButton(
                     foregroundColor: Colors.white,
-                    onPressed: () =>
-                        AutoRouter.of(context).push(const WebViewPageRoute()),
-                    child: const Icon(FontAwesomeIcons.internetExplorer)),
+                    onPressed: () => showCupertinoModalBottomSheet<void>(
+                          expand: false,
+                          context: context,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) => const ModalFit(),
+                        ),
+                    child: const Icon(FontAwesomeIcons.ellipsisH)),
                 const SizedBox(width: 10),
                 const FAB(),
               ],

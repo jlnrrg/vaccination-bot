@@ -49,5 +49,19 @@ abstract class  LocaleKeys {
   static const backgroundExec = 'backgroundExec';
   static const readmoretext_more = 'readmoretext_more';
   static const readmoretext_less = 'readmoretext_less';
+  static const modal_notification = 'modal.notification';
+  static const modal_webview = 'modal.webview';
+  static const modal_backgroundTest = 'modal.backgroundTest';
+  static const modal = 'modal';
+  static const notification_title = 'notification.title';
+  static const notification_body = 'notification.body';
+  static const notification = 'notification';
+  static const valueFailure_isNull = 'valueFailure.isNull';
+  static const valueFailure_empty = 'valueFailure.empty';
+  static const valueFailure_exceedingLength = 'valueFailure.exceedingLength';
+  static const valueFailure_subceedingLength = 'valueFailure.subceedingLength';
+  static const valueFailure_dateTimeInFuture = 'valueFailure.dateTimeInFuture';
+  static const valueFailure_unexpected = 'valueFailure.unexpected';
+  static const valueFailure = 'valueFailure';
 
 }

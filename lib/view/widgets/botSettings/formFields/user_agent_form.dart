@@ -21,6 +21,7 @@ class UserAgentForm extends HookWidget {
       ),
       onSaved: (String? value) =>
           context.read(botSettingsProvider.notifier).userAgentChanged(value),
+      textInputAction: TextInputAction.done,
     );
   }
 }

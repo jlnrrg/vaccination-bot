@@ -22,14 +22,15 @@ class _$PersonTearOff {
 
   _PersonalFormState call(
       {String? email,
-      DateTime? birthday,
-      int? postal,
+      @JsonKey(fromJson: birthdayFromJson, toJson: birthdayToJson)
+          Birthday? birthday,
+      @JsonKey(fromJson: postalFromJson, toJson: postalToJson)
+          Postal? postal,
       Gender? gender,
       String? firstName,
       String? lastName,
       String? street,
       int? streetNr,
-      String? city,
       int? phone}) {
     return _PersonalFormState(
       email: email,
@@ -40,7 +41,6 @@ class _$PersonTearOff {
       lastName: lastName,
       street: street,
       streetNr: streetNr,
-      city: city,
       phone: phone,
     );
   }
@@ -56,14 +56,15 @@ const $Person = _$PersonTearOff();
 /// @nodoc
 mixin _$Person {
   String? get email => throw _privateConstructorUsedError;
-  DateTime? get birthday => throw _privateConstructorUsedError;
-  int? get postal => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: birthdayFromJson, toJson: birthdayToJson)
+  Birthday? get birthday => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: postalFromJson, toJson: postalToJson)
+  Postal? get postal => throw _privateConstructorUsedError;
   Gender? get gender => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
   String? get street => throw _privateConstructorUsedError;
   int? get streetNr => throw _privateConstructorUsedError;
-  String? get city => throw _privateConstructorUsedError;
   int? get phone => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -77,16 +78,19 @@ abstract class $PersonCopyWith<$Res> {
       _$PersonCopyWithImpl<$Res>;
   $Res call(
       {String? email,
-      DateTime? birthday,
-      int? postal,
+      @JsonKey(fromJson: birthdayFromJson, toJson: birthdayToJson)
+          Birthday? birthday,
+      @JsonKey(fromJson: postalFromJson, toJson: postalToJson)
+          Postal? postal,
       Gender? gender,
       String? firstName,
       String? lastName,
       String? street,
       int? streetNr,
-      String? city,
       int? phone});
 
+  $BirthdayCopyWith<$Res>? get birthday;
+  $PostalCopyWith<$Res>? get postal;
   $GenderCopyWith<$Res>? get gender;
 }
 
@@ -108,7 +112,6 @@ class _$PersonCopyWithImpl<$Res> implements $PersonCopyWith<$Res> {
     Object? lastName = freezed,
     Object? street = freezed,
     Object? streetNr = freezed,
-    Object? city = freezed,
     Object? phone = freezed,
   }) {
     return _then(_value.copyWith(
@@ -119,11 +122,11 @@ class _$PersonCopyWithImpl<$Res> implements $PersonCopyWith<$Res> {
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as Birthday?,
       postal: postal == freezed
           ? _value.postal
           : postal // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as Postal?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -144,15 +147,33 @@ class _$PersonCopyWithImpl<$Res> implements $PersonCopyWith<$Res> {
           ? _value.streetNr
           : streetNr // ignore: cast_nullable_to_non_nullable
               as int?,
-      city: city == freezed
-          ? _value.city
-          : city // ignore: cast_nullable_to_non_nullable
-              as String?,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
+  }
+
+  @override
+  $BirthdayCopyWith<$Res>? get birthday {
+    if (_value.birthday == null) {
+      return null;
+    }
+
+    return $BirthdayCopyWith<$Res>(_value.birthday!, (value) {
+      return _then(_value.copyWith(birthday: value));
+    });
+  }
+
+  @override
+  $PostalCopyWith<$Res>? get postal {
+    if (_value.postal == null) {
+      return null;
+    }
+
+    return $PostalCopyWith<$Res>(_value.postal!, (value) {
+      return _then(_value.copyWith(postal: value));
+    });
   }
 
   @override
@@ -176,16 +197,21 @@ abstract class _$PersonalFormStateCopyWith<$Res>
   @override
   $Res call(
       {String? email,
-      DateTime? birthday,
-      int? postal,
+      @JsonKey(fromJson: birthdayFromJson, toJson: birthdayToJson)
+          Birthday? birthday,
+      @JsonKey(fromJson: postalFromJson, toJson: postalToJson)
+          Postal? postal,
       Gender? gender,
       String? firstName,
       String? lastName,
       String? street,
       int? streetNr,
-      String? city,
       int? phone});
 
+  @override
+  $BirthdayCopyWith<$Res>? get birthday;
+  @override
+  $PostalCopyWith<$Res>? get postal;
   @override
   $GenderCopyWith<$Res>? get gender;
 }
@@ -210,7 +236,6 @@ class __$PersonalFormStateCopyWithImpl<$Res> extends _$PersonCopyWithImpl<$Res>
     Object? lastName = freezed,
     Object? street = freezed,
     Object? streetNr = freezed,
-    Object? city = freezed,
     Object? phone = freezed,
   }) {
     return _then(_PersonalFormState(
@@ -221,11 +246,11 @@ class __$PersonalFormStateCopyWithImpl<$Res> extends _$PersonCopyWithImpl<$Res>
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as Birthday?,
       postal: postal == freezed
           ? _value.postal
           : postal // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as Postal?,
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -246,10 +271,6 @@ class __$PersonalFormStateCopyWithImpl<$Res> extends _$PersonCopyWithImpl<$Res>
           ? _value.streetNr
           : streetNr // ignore: cast_nullable_to_non_nullable
               as int?,
-      city: city == freezed
-          ? _value.city
-          : city // ignore: cast_nullable_to_non_nullable
-              as String?,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -263,14 +284,15 @@ class __$PersonalFormStateCopyWithImpl<$Res> extends _$PersonCopyWithImpl<$Res>
 class _$_PersonalFormState extends _PersonalFormState {
   const _$_PersonalFormState(
       {this.email,
-      this.birthday,
-      this.postal,
+      @JsonKey(fromJson: birthdayFromJson, toJson: birthdayToJson)
+          this.birthday,
+      @JsonKey(fromJson: postalFromJson, toJson: postalToJson)
+          this.postal,
       this.gender,
       this.firstName,
       this.lastName,
       this.street,
       this.streetNr,
-      this.city,
       this.phone})
       : super._();
 
@@ -280,9 +302,11 @@ class _$_PersonalFormState extends _PersonalFormState {
   @override
   final String? email;
   @override
-  final DateTime? birthday;
+  @JsonKey(fromJson: birthdayFromJson, toJson: birthdayToJson)
+  final Birthday? birthday;
   @override
-  final int? postal;
+  @JsonKey(fromJson: postalFromJson, toJson: postalToJson)
+  final Postal? postal;
   @override
   final Gender? gender;
   @override
@@ -294,13 +318,11 @@ class _$_PersonalFormState extends _PersonalFormState {
   @override
   final int? streetNr;
   @override
-  final String? city;
-  @override
   final int? phone;
 
   @override
   String toString() {
-    return 'Person(email: $email, birthday: $birthday, postal: $postal, gender: $gender, firstName: $firstName, lastName: $lastName, street: $street, streetNr: $streetNr, city: $city, phone: $phone)';
+    return 'Person(email: $email, birthday: $birthday, postal: $postal, gender: $gender, firstName: $firstName, lastName: $lastName, street: $street, streetNr: $streetNr, phone: $phone)';
   }
 
   @override
@@ -327,8 +349,6 @@ class _$_PersonalFormState extends _PersonalFormState {
             (identical(other.streetNr, streetNr) ||
                 const DeepCollectionEquality()
                     .equals(other.streetNr, streetNr)) &&
-            (identical(other.city, city) ||
-                const DeepCollectionEquality().equals(other.city, city)) &&
             (identical(other.phone, phone) ||
                 const DeepCollectionEquality().equals(other.phone, phone)));
   }
@@ -344,7 +364,6 @@ class _$_PersonalFormState extends _PersonalFormState {
       const DeepCollectionEquality().hash(lastName) ^
       const DeepCollectionEquality().hash(street) ^
       const DeepCollectionEquality().hash(streetNr) ^
-      const DeepCollectionEquality().hash(city) ^
       const DeepCollectionEquality().hash(phone);
 
   @JsonKey(ignore: true)
@@ -361,14 +380,15 @@ class _$_PersonalFormState extends _PersonalFormState {
 abstract class _PersonalFormState extends Person {
   const factory _PersonalFormState(
       {String? email,
-      DateTime? birthday,
-      int? postal,
+      @JsonKey(fromJson: birthdayFromJson, toJson: birthdayToJson)
+          Birthday? birthday,
+      @JsonKey(fromJson: postalFromJson, toJson: postalToJson)
+          Postal? postal,
       Gender? gender,
       String? firstName,
       String? lastName,
       String? street,
       int? streetNr,
-      String? city,
       int? phone}) = _$_PersonalFormState;
   const _PersonalFormState._() : super._();
 
@@ -378,9 +398,11 @@ abstract class _PersonalFormState extends Person {
   @override
   String? get email => throw _privateConstructorUsedError;
   @override
-  DateTime? get birthday => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: birthdayFromJson, toJson: birthdayToJson)
+  Birthday? get birthday => throw _privateConstructorUsedError;
   @override
-  int? get postal => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: postalFromJson, toJson: postalToJson)
+  Postal? get postal => throw _privateConstructorUsedError;
   @override
   Gender? get gender => throw _privateConstructorUsedError;
   @override
@@ -391,8 +413,6 @@ abstract class _PersonalFormState extends Person {
   String? get street => throw _privateConstructorUsedError;
   @override
   int? get streetNr => throw _privateConstructorUsedError;
-  @override
-  String? get city => throw _privateConstructorUsedError;
   @override
   int? get phone => throw _privateConstructorUsedError;
   @override

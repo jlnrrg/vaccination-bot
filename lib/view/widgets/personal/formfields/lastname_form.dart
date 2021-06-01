@@ -11,6 +11,7 @@ class LastnameForm extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FocusNode _node = useFocusNode();
     final lastname = useProvider(
         personalFormProvider.select((value) => value.person.lastName));
     return TextFormField(
@@ -23,6 +24,9 @@ class LastnameForm extends HookWidget {
           hintText: LocaleKeys.lastname_hint.tr()),
       onSaved: (String? value) =>
           context.read(personalFormProvider.notifier).lastNameChanged(value),
+      textInputAction: TextInputAction.next,
+      onEditingComplete: () => _node.nextFocus(),
+      focusNode: _node,
     );
   }
 }

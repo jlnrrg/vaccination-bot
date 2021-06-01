@@ -19,11 +19,13 @@ class _$PersonalFormStateTearOff {
   _PersonalFormState call(
       {required AutovalidateMode showErrorMessages,
       required GlobalKey<FormState> formKey,
-      required Person person}) {
+      required Person person,
+      required Option<String> saveFailureOrSuccessOption}) {
     return _PersonalFormState(
       showErrorMessages: showErrorMessages,
       formKey: formKey,
       person: person,
+      saveFailureOrSuccessOption: saveFailureOrSuccessOption,
     );
   }
 }
@@ -36,6 +38,8 @@ mixin _$PersonalFormState {
   AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
   Person get person => throw _privateConstructorUsedError;
+  Option<String> get saveFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PersonalFormStateCopyWith<PersonalFormState> get copyWith =>
@@ -50,7 +54,8 @@ abstract class $PersonalFormStateCopyWith<$Res> {
   $Res call(
       {AutovalidateMode showErrorMessages,
       GlobalKey<FormState> formKey,
-      Person person});
+      Person person,
+      Option<String> saveFailureOrSuccessOption});
 
   $PersonCopyWith<$Res> get person;
 }
@@ -69,6 +74,7 @@ class _$PersonalFormStateCopyWithImpl<$Res>
     Object? showErrorMessages = freezed,
     Object? formKey = freezed,
     Object? person = freezed,
+    Object? saveFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
       showErrorMessages: showErrorMessages == freezed
@@ -83,6 +89,10 @@ class _$PersonalFormStateCopyWithImpl<$Res>
           ? _value.person
           : person // ignore: cast_nullable_to_non_nullable
               as Person,
+      saveFailureOrSuccessOption: saveFailureOrSuccessOption == freezed
+          ? _value.saveFailureOrSuccessOption
+          : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
     ));
   }
 
@@ -104,7 +114,8 @@ abstract class _$PersonalFormStateCopyWith<$Res>
   $Res call(
       {AutovalidateMode showErrorMessages,
       GlobalKey<FormState> formKey,
-      Person person});
+      Person person,
+      Option<String> saveFailureOrSuccessOption});
 
   @override
   $PersonCopyWith<$Res> get person;
@@ -126,6 +137,7 @@ class __$PersonalFormStateCopyWithImpl<$Res>
     Object? showErrorMessages = freezed,
     Object? formKey = freezed,
     Object? person = freezed,
+    Object? saveFailureOrSuccessOption = freezed,
   }) {
     return _then(_PersonalFormState(
       showErrorMessages: showErrorMessages == freezed
@@ -140,6 +152,10 @@ class __$PersonalFormStateCopyWithImpl<$Res>
           ? _value.person
           : person // ignore: cast_nullable_to_non_nullable
               as Person,
+      saveFailureOrSuccessOption: saveFailureOrSuccessOption == freezed
+          ? _value.saveFailureOrSuccessOption
+          : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
     ));
   }
 }
@@ -150,7 +166,8 @@ class _$_PersonalFormState implements _PersonalFormState {
   const _$_PersonalFormState(
       {required this.showErrorMessages,
       required this.formKey,
-      required this.person});
+      required this.person,
+      required this.saveFailureOrSuccessOption});
 
   @override
   final AutovalidateMode showErrorMessages;
@@ -158,10 +175,12 @@ class _$_PersonalFormState implements _PersonalFormState {
   final GlobalKey<FormState> formKey;
   @override
   final Person person;
+  @override
+  final Option<String> saveFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'PersonalFormState(showErrorMessages: $showErrorMessages, formKey: $formKey, person: $person)';
+    return 'PersonalFormState(showErrorMessages: $showErrorMessages, formKey: $formKey, person: $person, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -175,7 +194,12 @@ class _$_PersonalFormState implements _PersonalFormState {
                 const DeepCollectionEquality()
                     .equals(other.formKey, formKey)) &&
             (identical(other.person, person) ||
-                const DeepCollectionEquality().equals(other.person, person)));
+                const DeepCollectionEquality().equals(other.person, person)) &&
+            (identical(other.saveFailureOrSuccessOption,
+                    saveFailureOrSuccessOption) ||
+                const DeepCollectionEquality().equals(
+                    other.saveFailureOrSuccessOption,
+                    saveFailureOrSuccessOption)));
   }
 
   @override
@@ -183,7 +207,8 @@ class _$_PersonalFormState implements _PersonalFormState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(formKey) ^
-      const DeepCollectionEquality().hash(person);
+      const DeepCollectionEquality().hash(person) ^
+      const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -193,9 +218,11 @@ class _$_PersonalFormState implements _PersonalFormState {
 
 abstract class _PersonalFormState implements PersonalFormState {
   const factory _PersonalFormState(
-      {required AutovalidateMode showErrorMessages,
-      required GlobalKey<FormState> formKey,
-      required Person person}) = _$_PersonalFormState;
+          {required AutovalidateMode showErrorMessages,
+          required GlobalKey<FormState> formKey,
+          required Person person,
+          required Option<String> saveFailureOrSuccessOption}) =
+      _$_PersonalFormState;
 
   @override
   AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
@@ -203,6 +230,9 @@ abstract class _PersonalFormState implements PersonalFormState {
   GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
   @override
   Person get person => throw _privateConstructorUsedError;
+  @override
+  Option<String> get saveFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PersonalFormStateCopyWith<_PersonalFormState> get copyWith =>

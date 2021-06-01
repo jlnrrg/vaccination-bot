@@ -11,6 +11,7 @@ class AfterIpBanForm extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FocusNode _node = useFocusNode();
     final value = useProvider(
         botSettingsProvider.select((value) => value.settings.afterIpBan));
     return TextFormField(
@@ -26,6 +27,9 @@ class AfterIpBanForm extends HookWidget {
       onSaved: (String? value) => context
           .read(botSettingsProvider.notifier)
           .afterIpBanChanged(value != null ? int.tryParse(value) : null),
+      textInputAction: TextInputAction.next,
+      onEditingComplete: () => _node.nextFocus(),
+      focusNode: _node,
     );
   }
 }

@@ -48,7 +48,8 @@ const $BotSettings = _$BotSettingsTearOff();
 /// @nodoc
 mixin _$BotSettings {
   int get afterRequest => throw _privateConstructorUsedError;
-  int get afterSuccess => throw _privateConstructorUsedError;
+  int get afterSuccess =>
+      throw _privateConstructorUsedError; //? not implemented as the app stops then
   int get afterFailedRequest => throw _privateConstructorUsedError;
   int get afterIpBan => throw _privateConstructorUsedError;
   int get jitter => throw _privateConstructorUsedError;
@@ -202,7 +203,7 @@ class _$_BotSettings implements _BotSettings {
   final int afterRequest;
   @override
   final int afterSuccess;
-  @override
+  @override //? not implemented as the app stops then
   final int afterFailedRequest;
   @override
   final int afterIpBan;
@@ -276,7 +277,7 @@ abstract class _BotSettings implements BotSettings {
   int get afterRequest => throw _privateConstructorUsedError;
   @override
   int get afterSuccess => throw _privateConstructorUsedError;
-  @override
+  @override //? not implemented as the app stops then
   int get afterFailedRequest => throw _privateConstructorUsedError;
   @override
   int get afterIpBan => throw _privateConstructorUsedError;

@@ -2,7 +2,7 @@
 import 'dart:convert';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:vaccination_bot/domain/bot_settings.dart';
-import 'package:vaccination_bot/domain/person.dart';
+import 'package:vaccination_bot/domain/person/person.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final Provider<SharedPreferencesService> sharedPreferencesServiceProvider =

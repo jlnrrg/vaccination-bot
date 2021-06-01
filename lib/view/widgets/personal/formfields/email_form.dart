@@ -11,6 +11,7 @@ class EmailForm extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FocusNode _node = useFocusNode();
     final email =
         useProvider(personalFormProvider.select((value) => value.person.email));
     return TextFormField(
@@ -24,6 +25,8 @@ class EmailForm extends HookWidget {
           hintText: LocaleKeys.email_hint.tr()),
       onSaved: (String? value) =>
           context.read(personalFormProvider.notifier).emailChanged(value),
+      textInputAction: TextInputAction.done,
+      focusNode: _node,
     );
   }
 }
