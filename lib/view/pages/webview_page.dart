@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -33,6 +34,8 @@ class _WebViewPageState extends State<WebViewPage> {
   String url = '';
   double progress = 0;
 
+  late Future<String?> script;
+
   @override
   void initState() {
     super.initState();
@@ -49,6 +52,7 @@ class _WebViewPageState extends State<WebViewPage> {
         }
       },
     );
+    script = context.read(backgroundTaskProvider.notifier).getJS();
   }
 
   @override
@@ -65,6 +69,8 @@ class _WebViewPageState extends State<WebViewPage> {
 
   @override
   Widget build(BuildContext context) {
+    final script = context.read(backgroundTaskProvider.notifier).getJS();
+
     return WillPopScope(
         onWillPop: () async => true,
         child: SafeArea(
@@ -101,42 +107,57 @@ class _WebViewPageState extends State<WebViewPage> {
                     }),
               ]),
               body: Stack(children: [
-                InAppWebView(
-                  key: webViewKey,
-                  pullToRefreshController: pullToRefreshController,
-                  initialUrlRequest: URLRequest(
-                      url: Uri.parse(
-                          'https://www.impfportal-niedersachsen.de/portal/#/appointment/public')),
-                  onWebViewCreated: (controller) {
-                    webViewController = controller;
-                  },
-                  initialOptions: InAppWebViewGroupOptions(
-                      android: AndroidInAppWebViewOptions(
-                          useHybridComposition: true)),
-                  androidOnPermissionRequest:
-                      (controller, origin, resources) async {
-                    return PermissionRequestResponse(
-                        resources: resources,
-                        action: PermissionRequestResponseAction.GRANT);
-                  },
-                  onLoadStop: (controller, url) async {
-                    pullToRefreshController.endRefreshing();
-                    setState(() {
-                      this.url = url.toString();
-                    });
-                  },
-                  onLoadError: (controller, url, code, message) {
-                    pullToRefreshController.endRefreshing();
-                  },
-                  onProgressChanged: (controller, progress) {
-                    if (progress == 100) {
-                      pullToRefreshController.endRefreshing();
-                    }
-                    setState(() {
-                      this.progress = progress / 100;
-                    });
-                  },
-                ),
+                FutureBuilder<String?>(
+                    future: script,
+                    builder: (BuildContext context,
+                        AsyncSnapshot<String?> snapshot) {
+                      if (snapshot.hasData) {
+                        return InAppWebView(
+                          key: webViewKey,
+                          pullToRefreshController: pullToRefreshController,
+                          initialUrlRequest: URLRequest(
+                              url: Uri.parse(
+                                  'https://www.impfportal-niedersachsen.de/portal/#/appointment/public')),
+                          initialUserScripts: UnmodifiableListView<UserScript>([
+                            UserScript(
+                                source: snapshot.data!,
+                                injectionTime:
+                                    UserScriptInjectionTime.AT_DOCUMENT_END)
+                          ]),
+                          onWebViewCreated: (controller) {
+                            webViewController = controller;
+                          },
+                          initialOptions: InAppWebViewGroupOptions(
+                              android: AndroidInAppWebViewOptions(
+                                  useHybridComposition: true)),
+                          androidOnPermissionRequest:
+                              (controller, origin, resources) async {
+                            return PermissionRequestResponse(
+                                resources: resources,
+                                action: PermissionRequestResponseAction.GRANT);
+                          },
+                          onLoadStop: (controller, url) async {
+                            pullToRefreshController.endRefreshing();
+                            setState(() {
+                              this.url = url.toString();
+                            });
+                          },
+                          onLoadError: (controller, url, code, message) {
+                            pullToRefreshController.endRefreshing();
+                          },
+                          onProgressChanged: (controller, progress) {
+                            if (progress == 100) {
+                              pullToRefreshController.endRefreshing();
+                            }
+                            setState(() {
+                              this.progress = progress / 100;
+                            });
+                          },
+                        );
+                      } else {
+                        return const CircularProgressIndicator();
+                      }
+                    })
               ])),
         ));
   }
