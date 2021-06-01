@@ -38,7 +38,7 @@ class Person with _$Person {
       if (lastName != null) 'const lastName = "$lastName"',
       if (street != null) 'const street = "$street"',
       if (streetNr != null) 'const streetNr = "${streetNr.toString()}"',
-      if (phone != null) 'const phone = "${phone.toString()}"',
+      if (phone != null) 'const phone = "0${phone.toString()}"',
     ].join('\n');
   }
 }
