@@ -30,8 +30,8 @@ jobs:
       - name: Analyze dart code for errors
         run: flutter analyze .
 
-      # - name: Run tests
-      #   run: flutter test
+      - name: Run tests
+        run: flutter test
 
       - name: Build Android apk
         run: flutter build apk --split-per-abi
@@ -45,5 +45,5 @@ jobs:
           # Name of the command/step.
           name: release-apk-${{ github.run_number }}
           # Path to the release apk.
-          path: build/app/outputs/apk/release/app-release-${{ github.run_number }}.apk
+          path: build/app/outputs/flutter-apk/app-release-${{ github.run_number }}.apk
           retention-days: 7
