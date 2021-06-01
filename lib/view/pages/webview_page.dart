@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logger/logger.dart';
 import 'package:vaccination_bot/application/background/background_task_notifier.dart';
 import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -35,6 +36,7 @@ class _WebViewPageState extends State<WebViewPage> {
   String url = '';
   double progress = 0;
 
+  late Logger logger;
   late Future<String?> script;
 
   @override
@@ -54,6 +56,9 @@ class _WebViewPageState extends State<WebViewPage> {
       },
     );
     script = context.read(backgroundTaskProvider.notifier).getJS();
+    logger = Logger(
+      printer: PrettyPrinter(methodCount: 0, printTime: true),
+    );
   }
 
   @override
@@ -64,7 +69,9 @@ class _WebViewPageState extends State<WebViewPage> {
   Future<void> runJS() async {
     final js = await context.read(backgroundTaskProvider.notifier).getJS();
     if (js != null) {
-      webViewController?.evaluateJavascript(source: js);
+      final dynamic result =
+          await webViewController?.evaluateJavascript(source: js);
+      logger.i(result);
     }
   }
 
@@ -79,9 +86,9 @@ class _WebViewPageState extends State<WebViewPage> {
               appBar: AppBar(
                   title: Text(LocaleKeys.webviewPageTitle.tr()),
                   actions: [
-                    IconButton(
-                        onPressed: () => runJS(),
-                        icon: const Icon(FontAwesomeIcons.scroll)),
+                    // IconButton(
+                    //     onPressed: () => runJS(),
+                    //     icon: const Icon(FontAwesomeIcons.scroll)),
                     FutureBuilder(
                         future: webViewController?.canGoBack(),
                         builder: (BuildContext context,
