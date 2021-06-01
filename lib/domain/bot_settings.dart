@@ -7,11 +7,12 @@ part 'bot_settings.g.dart';
 class BotSettings with _$BotSettings {
   const factory BotSettings({
     required int afterRequest,
-    required int afterSuccess, //? not implemented as the app stops then
     required int afterFailedRequest,
     required int afterIpBan,
     required int jitter,
     required String userAgent,
+    required bool continueAfterSuccess,
+    required int afterSuccess,
   }) = _BotSettings;
 
   factory BotSettings.initial() => BotSettings(
@@ -21,6 +22,7 @@ class BotSettings with _$BotSettings {
         afterIpBan: const Duration(hours: 3).inSeconds,
         jitter: 2,
         userAgent: 'impfbot',
+        continueAfterSuccess: false,
       );
 
   factory BotSettings.fromJson(Map<String, dynamic> json) =>

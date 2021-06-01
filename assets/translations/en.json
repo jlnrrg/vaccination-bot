@@ -51,7 +51,8 @@
         "afterFailedRequest": "Delay after failed request",
         "afterIpBan": "Delay after IP ban",
         "jitter": "Random delay (against bot recognition)",
-        "userAgent": "User Agent"
+        "userAgent": "User Agent",
+        "continueAfterSuccess": "Continue execution after success"
     },
     "units": {
         "seconds": "sec"

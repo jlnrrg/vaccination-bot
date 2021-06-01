@@ -22,18 +22,20 @@ class _$BotSettingsTearOff {
 
   _BotSettings call(
       {required int afterRequest,
-      required int afterSuccess,
       required int afterFailedRequest,
       required int afterIpBan,
       required int jitter,
-      required String userAgent}) {
+      required String userAgent,
+      required bool continueAfterSuccess,
+      required int afterSuccess}) {
     return _BotSettings(
       afterRequest: afterRequest,
-      afterSuccess: afterSuccess,
       afterFailedRequest: afterFailedRequest,
       afterIpBan: afterIpBan,
       jitter: jitter,
       userAgent: userAgent,
+      continueAfterSuccess: continueAfterSuccess,
+      afterSuccess: afterSuccess,
     );
   }
 
@@ -48,12 +50,12 @@ const $BotSettings = _$BotSettingsTearOff();
 /// @nodoc
 mixin _$BotSettings {
   int get afterRequest => throw _privateConstructorUsedError;
-  int get afterSuccess =>
-      throw _privateConstructorUsedError; //? not implemented as the app stops then
   int get afterFailedRequest => throw _privateConstructorUsedError;
   int get afterIpBan => throw _privateConstructorUsedError;
   int get jitter => throw _privateConstructorUsedError;
   String get userAgent => throw _privateConstructorUsedError;
+  bool get continueAfterSuccess => throw _privateConstructorUsedError;
+  int get afterSuccess => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -68,11 +70,12 @@ abstract class $BotSettingsCopyWith<$Res> {
       _$BotSettingsCopyWithImpl<$Res>;
   $Res call(
       {int afterRequest,
-      int afterSuccess,
       int afterFailedRequest,
       int afterIpBan,
       int jitter,
-      String userAgent});
+      String userAgent,
+      bool continueAfterSuccess,
+      int afterSuccess});
 }
 
 /// @nodoc
@@ -86,20 +89,17 @@ class _$BotSettingsCopyWithImpl<$Res> implements $BotSettingsCopyWith<$Res> {
   @override
   $Res call({
     Object? afterRequest = freezed,
-    Object? afterSuccess = freezed,
     Object? afterFailedRequest = freezed,
     Object? afterIpBan = freezed,
     Object? jitter = freezed,
     Object? userAgent = freezed,
+    Object? continueAfterSuccess = freezed,
+    Object? afterSuccess = freezed,
   }) {
     return _then(_value.copyWith(
       afterRequest: afterRequest == freezed
           ? _value.afterRequest
           : afterRequest // ignore: cast_nullable_to_non_nullable
-              as int,
-      afterSuccess: afterSuccess == freezed
-          ? _value.afterSuccess
-          : afterSuccess // ignore: cast_nullable_to_non_nullable
               as int,
       afterFailedRequest: afterFailedRequest == freezed
           ? _value.afterFailedRequest
@@ -117,6 +117,14 @@ class _$BotSettingsCopyWithImpl<$Res> implements $BotSettingsCopyWith<$Res> {
           ? _value.userAgent
           : userAgent // ignore: cast_nullable_to_non_nullable
               as String,
+      continueAfterSuccess: continueAfterSuccess == freezed
+          ? _value.continueAfterSuccess
+          : continueAfterSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      afterSuccess: afterSuccess == freezed
+          ? _value.afterSuccess
+          : afterSuccess // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -130,11 +138,12 @@ abstract class _$BotSettingsCopyWith<$Res>
   @override
   $Res call(
       {int afterRequest,
-      int afterSuccess,
       int afterFailedRequest,
       int afterIpBan,
       int jitter,
-      String userAgent});
+      String userAgent,
+      bool continueAfterSuccess,
+      int afterSuccess});
 }
 
 /// @nodoc
@@ -150,20 +159,17 @@ class __$BotSettingsCopyWithImpl<$Res> extends _$BotSettingsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? afterRequest = freezed,
-    Object? afterSuccess = freezed,
     Object? afterFailedRequest = freezed,
     Object? afterIpBan = freezed,
     Object? jitter = freezed,
     Object? userAgent = freezed,
+    Object? continueAfterSuccess = freezed,
+    Object? afterSuccess = freezed,
   }) {
     return _then(_BotSettings(
       afterRequest: afterRequest == freezed
           ? _value.afterRequest
           : afterRequest // ignore: cast_nullable_to_non_nullable
-              as int,
-      afterSuccess: afterSuccess == freezed
-          ? _value.afterSuccess
-          : afterSuccess // ignore: cast_nullable_to_non_nullable
               as int,
       afterFailedRequest: afterFailedRequest == freezed
           ? _value.afterFailedRequest
@@ -181,6 +187,14 @@ class __$BotSettingsCopyWithImpl<$Res> extends _$BotSettingsCopyWithImpl<$Res>
           ? _value.userAgent
           : userAgent // ignore: cast_nullable_to_non_nullable
               as String,
+      continueAfterSuccess: continueAfterSuccess == freezed
+          ? _value.continueAfterSuccess
+          : continueAfterSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      afterSuccess: afterSuccess == freezed
+          ? _value.afterSuccess
+          : afterSuccess // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -190,11 +204,12 @@ class __$BotSettingsCopyWithImpl<$Res> extends _$BotSettingsCopyWithImpl<$Res>
 class _$_BotSettings implements _BotSettings {
   const _$_BotSettings(
       {required this.afterRequest,
-      required this.afterSuccess,
       required this.afterFailedRequest,
       required this.afterIpBan,
       required this.jitter,
-      required this.userAgent});
+      required this.userAgent,
+      required this.continueAfterSuccess,
+      required this.afterSuccess});
 
   factory _$_BotSettings.fromJson(Map<String, dynamic> json) =>
       _$_$_BotSettingsFromJson(json);
@@ -202,8 +217,6 @@ class _$_BotSettings implements _BotSettings {
   @override
   final int afterRequest;
   @override
-  final int afterSuccess;
-  @override //? not implemented as the app stops then
   final int afterFailedRequest;
   @override
   final int afterIpBan;
@@ -211,10 +224,14 @@ class _$_BotSettings implements _BotSettings {
   final int jitter;
   @override
   final String userAgent;
+  @override
+  final bool continueAfterSuccess;
+  @override
+  final int afterSuccess;
 
   @override
   String toString() {
-    return 'BotSettings(afterRequest: $afterRequest, afterSuccess: $afterSuccess, afterFailedRequest: $afterFailedRequest, afterIpBan: $afterIpBan, jitter: $jitter, userAgent: $userAgent)';
+    return 'BotSettings(afterRequest: $afterRequest, afterFailedRequest: $afterFailedRequest, afterIpBan: $afterIpBan, jitter: $jitter, userAgent: $userAgent, continueAfterSuccess: $continueAfterSuccess, afterSuccess: $afterSuccess)';
   }
 
   @override
@@ -224,9 +241,6 @@ class _$_BotSettings implements _BotSettings {
             (identical(other.afterRequest, afterRequest) ||
                 const DeepCollectionEquality()
                     .equals(other.afterRequest, afterRequest)) &&
-            (identical(other.afterSuccess, afterSuccess) ||
-                const DeepCollectionEquality()
-                    .equals(other.afterSuccess, afterSuccess)) &&
             (identical(other.afterFailedRequest, afterFailedRequest) ||
                 const DeepCollectionEquality()
                     .equals(other.afterFailedRequest, afterFailedRequest)) &&
@@ -237,18 +251,25 @@ class _$_BotSettings implements _BotSettings {
                 const DeepCollectionEquality().equals(other.jitter, jitter)) &&
             (identical(other.userAgent, userAgent) ||
                 const DeepCollectionEquality()
-                    .equals(other.userAgent, userAgent)));
+                    .equals(other.userAgent, userAgent)) &&
+            (identical(other.continueAfterSuccess, continueAfterSuccess) ||
+                const DeepCollectionEquality().equals(
+                    other.continueAfterSuccess, continueAfterSuccess)) &&
+            (identical(other.afterSuccess, afterSuccess) ||
+                const DeepCollectionEquality()
+                    .equals(other.afterSuccess, afterSuccess)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(afterRequest) ^
-      const DeepCollectionEquality().hash(afterSuccess) ^
       const DeepCollectionEquality().hash(afterFailedRequest) ^
       const DeepCollectionEquality().hash(afterIpBan) ^
       const DeepCollectionEquality().hash(jitter) ^
-      const DeepCollectionEquality().hash(userAgent);
+      const DeepCollectionEquality().hash(userAgent) ^
+      const DeepCollectionEquality().hash(continueAfterSuccess) ^
+      const DeepCollectionEquality().hash(afterSuccess);
 
   @JsonKey(ignore: true)
   @override
@@ -264,11 +285,12 @@ class _$_BotSettings implements _BotSettings {
 abstract class _BotSettings implements BotSettings {
   const factory _BotSettings(
       {required int afterRequest,
-      required int afterSuccess,
       required int afterFailedRequest,
       required int afterIpBan,
       required int jitter,
-      required String userAgent}) = _$_BotSettings;
+      required String userAgent,
+      required bool continueAfterSuccess,
+      required int afterSuccess}) = _$_BotSettings;
 
   factory _BotSettings.fromJson(Map<String, dynamic> json) =
       _$_BotSettings.fromJson;
@@ -276,8 +298,6 @@ abstract class _BotSettings implements BotSettings {
   @override
   int get afterRequest => throw _privateConstructorUsedError;
   @override
-  int get afterSuccess => throw _privateConstructorUsedError;
-  @override //? not implemented as the app stops then
   int get afterFailedRequest => throw _privateConstructorUsedError;
   @override
   int get afterIpBan => throw _privateConstructorUsedError;
@@ -285,6 +305,10 @@ abstract class _BotSettings implements BotSettings {
   int get jitter => throw _privateConstructorUsedError;
   @override
   String get userAgent => throw _privateConstructorUsedError;
+  @override
+  bool get continueAfterSuccess => throw _privateConstructorUsedError;
+  @override
+  int get afterSuccess => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$BotSettingsCopyWith<_BotSettings> get copyWith =>

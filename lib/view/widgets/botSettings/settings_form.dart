@@ -7,7 +7,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/after_failed_request_form.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/after_ip_ban_form.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/after_request_form.dart';
+import 'package:vaccination_bot/view/widgets/botSettings/formFields/after_success_form.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/jitter_form.dart';
+import 'package:vaccination_bot/view/widgets/botSettings/formFields/repeat_after_success_form.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/formFields/user_agent_form.dart';
 
 class SettingsForm extends StatelessWidget {
@@ -57,10 +59,11 @@ class _Expanded extends HookWidget {
               child: Column(children: const [
             JitterForm(),
             AfterRequestForm(),
-            // AfterSuccessForm(),
             AfterFailedRequestForm(),
             AfterIpBanForm(),
             UserAgentForm(),
+            RepeatAfterSuccessForm(),
+            AfterSuccessForm(),
           ])))
     ]);
   }

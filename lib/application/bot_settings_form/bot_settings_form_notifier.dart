@@ -37,6 +37,13 @@ class BotSettingsFormStateNotifier extends StateNotifier<BotSettingsFormState> {
     }
   }
 
+  Future<void> continueAfterSuccessChanged(bool? value) async {
+    if (value != null) {
+      state = state.copyWith(
+          settings: state.settings.copyWith(continueAfterSuccess: value));
+    }
+  }
+
   Future<void> afterFailedRequestChanged(int? value) async {
     if (value != null) {
       state = state.copyWith(

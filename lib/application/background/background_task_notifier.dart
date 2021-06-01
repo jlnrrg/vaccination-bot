@@ -98,8 +98,13 @@ class BackgroundTaskStateNotifier extends StateNotifier<AsyncValue<int>?> {
           : await _fetchApiOutOfStock(postal, birthday);
       executions += 1;
       if (!isOutOfStock) {
-        await _appToForeground();
-        await stopped();
+        await notificationService.showNotification((_) async => onSuccess());
+
+        if (settings.continueAfterSuccess) {
+          await Future<void>.delayed(Duration(seconds: settings.afterSuccess));
+        } else {
+          await stopped();
+        }
       }
       await Future<void>.delayed(Duration(
           seconds: settings.afterRequest + Random().nextInt(settings.jitter)));
@@ -160,14 +165,12 @@ class BackgroundTaskStateNotifier extends StateNotifier<AsyncValue<int>?> {
         }, onDone: () {
           state = null;
         });
+      } else {
+        await stopped();
       }
     } else {
       await stopped();
     }
-  }
-
-  Future<void> _appToForeground() async {
-    notificationService.showNotification((_) async => onSuccess());
   }
 
   Future<String?> getJS() async {

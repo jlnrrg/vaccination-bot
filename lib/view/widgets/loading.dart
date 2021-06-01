@@ -15,6 +15,7 @@ class Loading extends HookWidget {
     return executions != null
         ? Center(
             child: Material(
+                elevation: 1,
                 borderRadius: BorderRadius.circular(20),
                 color: Theme.of(context).canvasColor,
                 child: Padding(
