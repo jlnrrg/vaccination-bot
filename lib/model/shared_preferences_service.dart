@@ -15,6 +15,7 @@ class SharedPreferencesService {
 
   static const String personalInformationKey = 'personalInformation';
   static const String botSettingsKey = 'botSettings';
+  static const String isLightThemeKey = 'lightTheme';
 
   Future<void> setPersonalInformation(Person person) async {
     final map = person.toJson();
@@ -44,5 +45,14 @@ class SharedPreferencesService {
       return BotSettings.fromJson(map);
     }
     return null;
+  }
+
+  Future<void> setThemeSettings(bool value) async {
+    await sharedPreferences.setBool(isLightThemeKey, value);
+  }
+
+  bool? getThemeSettings() {
+    final data = sharedPreferences.getBool(isLightThemeKey);
+    return data;
   }
 }

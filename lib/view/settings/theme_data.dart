@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:riverpod/riverpod.dart';
+import 'package:vaccination_bot/model/shared_preferences_service.dart';
 
 class AppTheme {
   // Private Constructor
@@ -45,14 +46,26 @@ class AppTheme {
 }
 
 class AppThemeState extends StateNotifier<bool> {
-  AppThemeState() : super(true);
+  AppThemeState(bool? initialValue, this.service) : super(initialValue ?? true);
+  final SharedPreferencesService service;
 
   void changeTheme() => state ^= true;
 
-  void setLightTheme() => state = true;
-  void setDarkTheme() => state = false;
+  Future<void> setLightTheme() async {
+    state = true;
+    await saveLocally(state);
+  }
+
+  Future<void> setDarkTheme() async {
+    state = false;
+    await saveLocally(state);
+  }
+
+  Future<void> saveLocally(bool value) => service.setThemeSettings(value);
 }
 
 final StateNotifierProvider<AppThemeState, bool> appThemeStateNotifier =
-    StateNotifierProvider<AppThemeState, bool>(
-        (ProviderReference ref) => AppThemeState());
+    StateNotifierProvider<AppThemeState, bool>((ProviderReference ref) {
+  final service = ref.watch(sharedPreferencesServiceProvider);
+  return AppThemeState(service.getThemeSettings(), service);
+});
