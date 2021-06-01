@@ -34,11 +34,11 @@ jobs:
         run: flutter test
 
       - name: Build Android apk
-        run: flutter build apk
+        run: flutter build apk --split-per-abi
 
       - name: Rename Release
-        run: mv app-release.apk app-release-${{ github.run_number }}.apk
-        working-directory: build/app/outputs/apk/release
+        run: mv app-armeabi-v7a-release.apk app-release-${{ github.run_number }}.apk
+        working-directory: build/app/outputs/flutter-apk
 
       - uses: actions/upload-artifact@v2
         with:
