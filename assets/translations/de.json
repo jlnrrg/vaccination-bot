@@ -1,1 +1,91 @@
-{}
+{
+    "homePageTitle": "Impftermin Sucher",
+    "webviewPageTitle": "Webview",
+    "introduction": "Dies ist eine App, um möglichst schnell einen Termin für eine Corona-Impfung beim Impfportal Niedersachsen zu erhalten. Die App sucht nach richtigem eintragen der Informationen nach freien Terminen beim Impfportal, unabhängig von der Warteliste. Es hat sich gezeigt, dass auch freie Termine freigeschaltet werden, obwohl Menschen auf der Warteliste sind. Diese Termine werden mit dieser App abgefangen.",
+    "stopProcess": "Den aktiven Prozess stoppen",
+    "startProcess": "Nach einem freien Termin suchen",
+    "email": {
+        "label": "Email",
+        "hint": "test@test.com"
+    },
+    "birthday": {
+        "label": "Geburtstag",
+        "hint": "25.03.1940"
+    },
+    "postal": {
+        "label": "Postleitzahl",
+        "hint": "39021"
+    },
+    "advancedInformation": "Weitere Informationen",
+    "botSettings": "Bot Einstellungen",
+    "gender": {
+        "term": "Geschlecht",
+        "female": "weiblich",
+        "male": "männlich",
+        "other": "divers",
+        "select": "Wähle dein Geschlecht aus"
+    },
+    "firstname": {
+        "label": "Vornahme",
+        "hint": "Max"
+    },
+    "lastname": {
+        "label": "Nachname",
+        "hint": "Mustermann"
+    },
+    "street": {
+        "label": "Straße",
+        "hint": "Albertstr."
+    },
+    "streetnr": {
+        "label": "Straßen Nr.",
+        "hint": "1"
+    },
+    "phone": {
+        "label": "Telefon",
+        "hint": "015141639413"
+    },
+    "botSettingsLabel": {
+        "afterRequest": "Wartezeit nach der Anfrage",
+        "afterSuccess": "Wartezeit nach dem Fund",
+        "afterFailedRequest": "Wartezeit nach fehlgeschlagener Anfrage",
+        "afterIpBan": "Wartezeit nach IP ban",
+        "jitter": "Zufällige Wartezeit (gegen bot Erkennung)",
+        "userAgent": "User Agent",
+        "continueAfterSuccess": "Nach Fund weitermachen"
+    },
+    "units": {
+        "seconds": "sec"
+    },
+    "loadingExecutions": {
+        "zero": "Ausführung: {}",
+        "one": "Ausführung: {}",
+        "two": "Ausführungen: {}",
+        "few": "Ausführungen: {}",
+        "many": "Ausführungen: {}",
+        "other": "Ausführungen: {}"
+    },
+    "backgroundExec": {
+        "title": "flutter_background example app",
+        "text": "Background notification for keeping the example app running in the background"
+    },
+    "readmoretext_more": "Zeige mehr",
+    "readmoretext_less": "Zeige weniger",
+    "modal": {
+        "notification": "Testen der Benachrichtigung",
+        "webview": "Zeigen der Website",
+        "backgroundTest": "Testen der Hintergrundverarbeitung ohne API Anfrage"
+    },
+    "notification": {
+        "title": "Ein freier Impftermin wurde gefunden",
+        "body": "Sei schnell und sichere dir den Impftermin"
+    },
+    "valueFailure": {
+        "isNull": "Die Eingabe muss gültig sein",
+        "empty": "Die Eingabe darf nicht leer sein",
+        "exceedingLength": "Die Eingabe darf nicht zu lang sein",
+        "subceedingLength": "Die Eingabe darf nicht zu kurz sein",
+        "dateTimeInFuture": "Die Eingabe darf nicht in der Zukunft liegen",
+        "unexpected": "Ein unvorhergesehener Fehler ist aufgetreten"
+    }
+}
