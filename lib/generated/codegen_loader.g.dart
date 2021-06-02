@@ -65,5 +65,6 @@ abstract class  LocaleKeys {
   static const valueFailure_dateTimeInFuture = 'valueFailure.dateTimeInFuture';
   static const valueFailure_unexpected = 'valueFailure.unexpected';
   static const valueFailure = 'valueFailure';
+  static const runPersonalFormJS = 'runPersonalFormJS';
 
 }

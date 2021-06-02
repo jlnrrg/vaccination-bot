@@ -55,7 +55,7 @@ class _WebViewPageState extends State<WebViewPage> {
         }
       },
     );
-    script = context.read(backgroundTaskProvider.notifier).getJS();
+    script = context.read(backgroundTaskProvider.notifier).getInitialJS();
     logger = Logger(
       printer: PrettyPrinter(methodCount: 0, printTime: true),
     );
@@ -66,8 +66,9 @@ class _WebViewPageState extends State<WebViewPage> {
     super.dispose();
   }
 
-  Future<void> runJS() async {
-    final js = await context.read(backgroundTaskProvider.notifier).getJS();
+  Future<void> runPersonalInfoJS() async {
+    final js =
+        await context.read(backgroundTaskProvider.notifier).getPersonalFormJS();
     if (js != null) {
       final dynamic result =
           await webViewController?.evaluateJavascript(source: js);
@@ -77,8 +78,6 @@ class _WebViewPageState extends State<WebViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    final script = context.read(backgroundTaskProvider.notifier).getJS();
-
     return WillPopScope(
         onWillPop: () async => true,
         child: SafeArea(
@@ -86,9 +85,10 @@ class _WebViewPageState extends State<WebViewPage> {
               appBar: AppBar(
                   title: Text(LocaleKeys.webviewPageTitle.tr()),
                   actions: [
-                    // IconButton(
-                    //     onPressed: () => runJS(),
-                    //     icon: const Icon(FontAwesomeIcons.scroll)),
+                    IconButton(
+                        tooltip: LocaleKeys.runPersonalFormJS.tr(),
+                        onPressed: () => runPersonalInfoJS(),
+                        icon: const Icon(FontAwesomeIcons.scroll)),
                     FutureBuilder(
                         future: webViewController?.canGoBack(),
                         builder: (BuildContext context,

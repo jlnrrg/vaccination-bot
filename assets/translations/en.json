@@ -87,5 +87,6 @@
         "subceedingLength": "Input must not subceed length",
         "dateTimeInFuture": "Input must not be in the Future",
         "unexpected": "An unexpected error occured"
-    }
+    },
+    "runPersonalFormJS": "Fill the form with personal data"
 }

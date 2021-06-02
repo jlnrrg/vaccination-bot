@@ -87,5 +87,6 @@
         "subceedingLength": "Die Eingabe darf nicht zu kurz sein",
         "dateTimeInFuture": "Die Eingabe darf nicht in der Zukunft liegen",
         "unexpected": "Ein unvorhergesehener Fehler ist aufgetreten"
-    }
+    },
+    "runPersonalFormJS": "Das Formular mit eigenen Daten füllen"
 }

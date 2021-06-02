@@ -173,8 +173,15 @@ class BackgroundTaskStateNotifier extends StateNotifier<AsyncValue<int>?> {
     }
   }
 
-  Future<String?> getJS() async {
+  Future<String?> getInitialJS() async {
     final js = await rootBundle.loadString('assets/automatisation.js');
+    final vars = personalState.person.toJSVars();
+    final text = [vars, js].join('\n');
+    return text;
+  }
+
+  Future<String?> getPersonalFormJS() async {
+    final js = await rootBundle.loadString('assets/fill_personal_detail.js');
     final vars = personalState.person.toJSVars();
     final text = [vars, js].join('\n');
     return text;

@@ -37,15 +37,15 @@ class Person with _$Person {
     final postalLocal = postal?.getOrNull();
 
     return [
-      if (email != null) 'const email = "$email"',
+      if (email != null) 'let email = "$email"',
       if (birthdayLocal != null)
-        'const birthday = "${dateFormat.format(birthdayLocal)}"',
-      if (postalLocal != null) 'const postal = "$postalLocal"',
-      if (firstName != null) 'const firstName = "$firstName"',
-      if (lastName != null) 'const lastName = "$lastName"',
-      if (street != null) 'const street = "$street"',
-      if (streetNr != null) 'const streetNr = "${streetNr.toString()}"',
-      if (phone != null) 'const phone = "0${phone.toString()}"',
+        'let birthday = "${dateFormat.format(birthdayLocal)}"',
+      if (postalLocal != null) 'let postal = "$postalLocal"',
+      if (firstName != null) 'let firstName = "$firstName"',
+      if (lastName != null) 'let lastName = "$lastName"',
+      if (street != null) 'let street = "$street"',
+      if (streetNr != null) 'let streetNr = "${streetNr.toString()}"',
+      if (phone != null) 'let phone = "0${phone.toString()}"',
     ].join('\n');
   }
 
