@@ -81,7 +81,7 @@ class Downloader {
     localPath = (await _findLocalPath())! + Platform.pathSeparator + 'Download';
 
     final savedDir = Directory(localPath);
-    final bool hasExisted = await savedDir.exists();
+    final bool hasExisted = savedDir.existsSync();
     if (!hasExisted) {
       savedDir.create();
     }
