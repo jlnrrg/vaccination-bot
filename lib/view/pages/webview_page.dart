@@ -41,8 +41,7 @@ class _WebViewPageState extends State<WebViewPage> {
   late Future<String?> script;
 
   final initialWebsite =
-      'https://file-examples.com/index.php/sample-documents-download/sample-doc-download/';
-  // 'https://www.impfportal-niedersachsen.de/portal/#/appointment/public';
+      'https://www.impfportal-niedersachsen.de/portal/#/appointment/public';
 
   @override
   void initState() {
