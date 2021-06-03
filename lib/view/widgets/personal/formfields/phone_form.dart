@@ -16,7 +16,7 @@ class PhoneForm extends HookWidget {
     final phone =
         useProvider(personalFormProvider.select((value) => value.person.phone));
     return TextFormField(
-      initialValue: phone?.toString(),
+      initialValue: phone,
       keyboardType: TextInputType.number,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       decoration: InputDecoration(
@@ -25,9 +25,8 @@ class PhoneForm extends HookWidget {
           icon: const Icon(FontAwesomeIcons.phone),
           labelText: LocaleKeys.phone_label.tr(),
           hintText: LocaleKeys.phone_hint.tr()),
-      onSaved: (String? value) => context
-          .read(personalFormProvider.notifier)
-          .phoneChanged(value != null ? int.tryParse(value) : null),
+      onSaved: (String? value) =>
+          context.read(personalFormProvider.notifier).phoneChanged(value),
       textInputAction: TextInputAction.next,
       onEditingComplete: () => _node.nextFocus(),
       focusNode: _node,

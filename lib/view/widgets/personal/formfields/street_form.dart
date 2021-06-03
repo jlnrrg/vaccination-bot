@@ -44,7 +44,7 @@ class StreetForm extends HookWidget {
         Flexible(
             flex: 1,
             child: TextFormField(
-              initialValue: streetNr?.toString(),
+              initialValue: streetNr,
               keyboardType: TextInputType.number,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               decoration: InputDecoration(
@@ -54,7 +54,7 @@ class StreetForm extends HookWidget {
                   hintText: LocaleKeys.streetnr_hint.tr()),
               onSaved: (String? value) => context
                   .read(personalFormProvider.notifier)
-                  .streetNrChanged(value != null ? int.tryParse(value) : null),
+                  .streetNrChanged(value),
               textInputAction: TextInputAction.next,
               onEditingComplete: () => _node2.nextFocus(),
               focusNode: _node2,

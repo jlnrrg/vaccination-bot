@@ -65,13 +65,13 @@ class PersonalFormStateNotifier extends StateNotifier<PersonalFormState> {
         saveFailureOrSuccessOption: none());
   }
 
-  Future<void> streetNrChanged(int? value) async {
+  Future<void> streetNrChanged(String? value) async {
     state = state.copyWith(
         person: state.person.copyWith(streetNr: value),
         saveFailureOrSuccessOption: none());
   }
 
-  Future<void> phoneChanged(int? value) async {
+  Future<void> phoneChanged(String? value) async {
     state = state.copyWith(
         person: state.person.copyWith(phone: value),
         saveFailureOrSuccessOption: none());

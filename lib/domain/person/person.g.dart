@@ -17,8 +17,8 @@ _$_PersonalFormState _$_$_PersonalFormStateFromJson(Map<String, dynamic> json) {
     firstName: json['firstName'] as String?,
     lastName: json['lastName'] as String?,
     street: json['street'] as String?,
-    streetNr: json['streetNr'] as int?,
-    phone: json['phone'] as int?,
+    streetNr: json['streetNr'] as String?,
+    phone: json['phone'] as String?,
   );
 }
 

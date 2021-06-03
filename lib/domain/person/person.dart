@@ -20,8 +20,8 @@ class Person with _$Person {
     String? firstName,
     String? lastName,
     String? street,
-    int? streetNr,
-    int? phone,
+    String? streetNr,
+    String? phone,
   }) = _PersonalFormState;
 
   const Person._();
