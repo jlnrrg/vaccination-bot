@@ -30,11 +30,11 @@ class AppBarWithAd extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _AppBarWithAdState extends State<AppBarWithAd> {
-  static const AdRequest request = AdRequest(
-    keywords: <String>['foo', 'bar'],
-    contentUrl: 'http://foo.com/bar.html',
-    nonPersonalizedAds: true,
-  );
+  static const AdRequest request = AdRequest();
+  //   keywords: <String>['foo', 'bar'],
+  //   contentUrl: 'http://foo.com/bar.html',
+  //   nonPersonalizedAds: true,
+  // );
 
   late BannerAd bannerAd;
   bool isAdLoaded = false;
