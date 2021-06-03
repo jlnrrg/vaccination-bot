@@ -31,6 +31,13 @@ jobs:
       # - name: Check formatting issues
       #   run: flutter format --set-exit-if-changed .
 
+      - name: Decode secrets.properties
+        if: ${{ !env.ACT }}
+        env:
+          SECRETS_PROPERTIES: ${{ secrets.SECRETS_PROPERTIES }}
+        run: echo $SECRETS_PROPERTIES > secrets.properties
+        working-directory: ./android
+
       - name: Analyze dart code for errors
         run: flutter analyze .
 

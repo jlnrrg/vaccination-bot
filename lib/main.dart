@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:vaccination_bot/application/downloader/downloader.dart';
 import 'package:vaccination_bot/model/shared_preferences_service.dart';
@@ -19,8 +20,8 @@ Future<void> main() async {
 
   await FlutterDownloader.initialize();
   FlutterDownloader.registerCallback(Downloader.callback);
-  // final FlutterLocalNotificationsPlugin notificationPlugin =
-  //     await initializeNotifications();
+
+  MobileAds.instance.initialize();
 
   runApp(ProviderScope(
       overrides: <Override>[

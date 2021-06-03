@@ -17,6 +17,7 @@ import 'package:vaccination_bot/view/widgets/personal/formfields/birthday_form.d
 import 'package:vaccination_bot/view/widgets/personal/formfields/postal_form.dart';
 import 'package:vaccination_bot/view/widgets/loading.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/settings_form.dart';
+import 'package:vaccination_bot/view/widgets/appbar.dart';
 
 final homepageScaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -56,7 +57,7 @@ class HomePage extends HookWidget {
                           .changeTheme());
                 })
               ],
-            ),
+            ).withBottomAdmobBanner(context),
             body: Stack(children: [
               ListView(
                 padding: const EdgeInsets.all(20),
