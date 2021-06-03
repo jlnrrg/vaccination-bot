@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:vaccination_bot/application/background/background_task_notifier.dart';
+import 'package:vaccination_bot/application/downloader/downloader.dart';
 import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -22,9 +23,9 @@ class _WebViewPageState extends State<WebViewPage> {
   InAppWebViewController? webViewController;
   InAppWebViewGroupOptions options = InAppWebViewGroupOptions(
       crossPlatform: InAppWebViewOptions(
-        useShouldOverrideUrlLoading: true,
-        mediaPlaybackRequiresUserGesture: false,
-      ),
+          useShouldOverrideUrlLoading: true,
+          mediaPlaybackRequiresUserGesture: false,
+          useOnDownloadStart: true),
       android: AndroidInAppWebViewOptions(
         useHybridComposition: true,
       ),
@@ -38,6 +39,10 @@ class _WebViewPageState extends State<WebViewPage> {
 
   late Logger logger;
   late Future<String?> script;
+
+  final initialWebsite =
+      'https://file-examples.com/index.php/sample-documents-download/sample-doc-download/';
+  // 'https://www.impfportal-niedersachsen.de/portal/#/appointment/public';
 
   @override
   void initState() {
@@ -126,9 +131,9 @@ class _WebViewPageState extends State<WebViewPage> {
                         return InAppWebView(
                           key: webViewKey,
                           pullToRefreshController: pullToRefreshController,
-                          initialUrlRequest: URLRequest(
-                              url: Uri.parse(
-                                  'https://www.impfportal-niedersachsen.de/portal/#/appointment/public')),
+                          initialOptions: options,
+                          initialUrlRequest:
+                              URLRequest(url: Uri.parse(initialWebsite)),
                           initialUserScripts: UnmodifiableListView<UserScript>([
                             UserScript(
                                 source: snapshot.data!,
@@ -138,9 +143,12 @@ class _WebViewPageState extends State<WebViewPage> {
                           onWebViewCreated: (controller) {
                             webViewController = controller;
                           },
-                          initialOptions: InAppWebViewGroupOptions(
-                              android: AndroidInAppWebViewOptions(
-                                  useHybridComposition: true)),
+                          onDownloadStart: (controller, url) async {
+                            final provider = context.read(downloaderProvider);
+                            if (await provider.requestPermission()) {
+                              await provider.requestDownload(url.toString());
+                            }
+                          },
                           androidOnPermissionRequest:
                               (controller, origin, resources) async {
                             return PermissionRequestResponse(
