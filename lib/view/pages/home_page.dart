@@ -9,6 +9,7 @@ import 'package:vaccination_bot/application/personal_form/personal_form_notifier
 import 'package:vaccination_bot/view/components/flat_card.dart';
 import 'package:vaccination_bot/generated/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:vaccination_bot/view/widgets/ads/banner_ad.dart';
 import 'package:vaccination_bot/view/widgets/modal/modal_fit.dart';
 import 'package:vaccination_bot/view/widgets/personal/advanced_form.dart';
 import 'package:vaccination_bot/view/widgets/fab.dart';

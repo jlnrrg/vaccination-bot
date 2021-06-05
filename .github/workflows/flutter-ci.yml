@@ -38,6 +38,14 @@ jobs:
         run: echo $SECRETS_PROPERTIES > secrets.properties
         working-directory: ./android
 
+      - name: Decode secrets.dart Constants
+        if: ${{ !env.ACT }}
+        env:
+          SECRETS_DART: ${{ secrets.SECRETS_DART }}
+        run: |
+          mkdir ./lib/constants
+          echo $SECRETS_DART > lib/constants/secrets.dart
+
       - name: Analyze dart code for errors
         run: flutter analyze .
 

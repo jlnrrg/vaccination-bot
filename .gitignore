@@ -1,5 +1,6 @@
 # Secrets
 secrets.properties
+secrets.dart
 
 # Miscellaneous
 *.class
