@@ -1,9 +1,6 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_funding_choices/flutter_funding_choices.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:vaccination_bot/view/widgets/ads/banner_ad.dart';
 
 extension AppBarX on AppBar {
