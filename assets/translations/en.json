@@ -90,6 +90,7 @@
     },
     "runPersonalFormJS": "Fill the form with personal data",
     "vaccinationGroup": {
+        "label": "Vaccinationgroup",
         "job": "Job related indication",
         "medication": "Medical / other related indication",
         "none": "No indication",

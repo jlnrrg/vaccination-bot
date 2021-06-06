@@ -90,6 +90,7 @@
     },
     "runPersonalFormJS": "Das Formular mit eigenen Daten füllen",
     "vaccinationGroup": {
+        "label": "Berechtigungsgruppe",
         "job": "Berufliche Indication",
         "medication": "Medizinische / sonstige Indication",
         "none": "Keine Indication",

@@ -66,6 +66,7 @@ abstract class  LocaleKeys {
   static const valueFailure_unexpected = 'valueFailure.unexpected';
   static const valueFailure = 'valueFailure';
   static const runPersonalFormJS = 'runPersonalFormJS';
+  static const vaccinationGroup_label = 'vaccinationGroup.label';
   static const vaccinationGroup_job = 'vaccinationGroup.job';
   static const vaccinationGroup_medication = 'vaccinationGroup.medication';
   static const vaccinationGroup_none = 'vaccinationGroup.none';

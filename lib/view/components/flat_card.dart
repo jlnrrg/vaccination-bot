@@ -52,6 +52,7 @@ class FlatCard extends StatelessWidget {
                       if (label != null)
                         Row(
                             mainAxisAlignment: labelAlignment,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Text(
                                 label!,
