@@ -1,7 +1,7 @@
 {
     "homePageTitle": "Impftermin Sucher",
     "webviewPageTitle": "Webview",
-    "introduction": "Dies ist eine App, um möglichst schnell einen Termin für eine Corona-Impfung beim Impfportal Niedersachsen zu erhalten. Die App sucht nach richtigem Eintragen der Informationen nach freien Terminen beim Impfportal, unabhängig von der Warteliste. Es hat sich gezeigt, dass auch freie Termine freigeschaltet werden, obwohl Menschen auf der Warteliste sind. Diese Termine werden mit dieser App abgefangen.",
+    "introduction": "Dies ist eine App, um möglichst schnell einen Termin für eine Corona-Impfung beim Impfportal Niedersachsen zu erhalten. Die App sucht nach richtigem Eintragen der Informationen nach freien Terminen beim Impfportal, unabhängig von der Warteliste. Es hat sich gezeigt, dass auch freie Termine freigeschaltet werden, obwohl Menschen auf der Warteliste sind. Diese Termine werden mit dieser App abgefangen. Sobald ein freier Termin gefunden wurde, schickt die App eine Benachrichtigung. Beim Klicken auf die Benachrichtigung werden einige Informationen vorausgefüllt. Anschließend muss ein Captcha gelöst und eine SMS Autentifizierung gelöst werden. Danach können mit dem Script Button die persönlichen Informationen automatisch ausgefüllt werden.",
     "stopProcess": "Den aktiven Prozess stoppen",
     "startProcess": "Nach einem freien Termin suchen",
     "email": {

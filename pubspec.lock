@@ -636,10 +636,12 @@ packages:
   readmore:
     dependency: "direct main"
     description:
-      name: readmore
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
+      path: "."
+      ref: patch-1
+      resolved-ref: "07e395fc4f7473eda21cb99231762c7dca169181"
+      url: "git@github.com:govindmaheshwari2/readmore.git"
+    source: git
+    version: "2.1.0"
   riverpod:
     dependency: transitive
     description:

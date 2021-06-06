@@ -1,7 +1,7 @@
 {
     "homePageTitle": "Vaccination Appointment Searcher",
     "webviewPageTitle": "Webview",
-    "introduction": "This app tries to get you an appointment for a vaccination at the official vaccination center of Lower Saxony as soon as possible. If all forms are filled out correctly, the app will search for an available appointment regardless of the waiting list. It has been observed that free appointments are also released even though people are on the waiting list. These appointments are intercepted with this app. When the app finds an appointment, a notification is sent and a browser window opens, where the phone number must be entered. After solving the captcha, an SMS is sent with a code that must be entered on the page. When the fields below are filled in, the entry of the personal data on the following website is automated.",
+    "introduction": "This app tries to get you an appointment for a vaccination at the official vaccination center of Lower Saxony as soon as possible. If all forms are filled out correctly, the app will search for an available appointment regardless of the waiting list. It has been observed that free appointments are also released even though people are on the waiting list. These appointments are intercepted with this app. When the app finds an appointment, a notification is sent and a browser window opens, where the phone number must be entered. After solving the captcha, an SMS is sent with a code that must be entered on the page. When the fields below are filled in, the entry of the personal data on the following website can be automatically filled in by clicking the script button.",
     "stopProcess": "Stop the running Process",
     "startProcess": "Start looking for a free appointment",
     "email": {
