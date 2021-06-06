@@ -88,5 +88,11 @@
         "dateTimeInFuture": "Die Eingabe darf nicht in der Zukunft liegen",
         "unexpected": "Ein unvorhergesehener Fehler ist aufgetreten"
     },
-    "runPersonalFormJS": "Das Formular mit eigenen Daten füllen"
+    "runPersonalFormJS": "Das Formular mit eigenen Daten füllen",
+    "vaccinationGroup": {
+        "job": "Berufliche Indication",
+        "medication": "Medizinische / sonstige Indication",
+        "none": "Keine Indication",
+        "select": "Wähle deine Impfgruppe aus"
+    }
 }

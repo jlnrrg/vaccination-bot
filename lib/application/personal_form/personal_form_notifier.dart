@@ -77,6 +77,12 @@ class PersonalFormStateNotifier extends StateNotifier<PersonalFormState> {
         saveFailureOrSuccessOption: none());
   }
 
+  Future<void> groupChanged(Group value) async {
+    state = state.copyWith(
+        person: state.person.copyWith(group: value),
+        saveFailureOrSuccessOption: none());
+  }
+
   Future<void> saved() async {
     state.formKey.currentState?.save();
     state.formKey.currentState?.validate();

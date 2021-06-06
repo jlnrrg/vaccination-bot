@@ -88,5 +88,11 @@
         "dateTimeInFuture": "Input must not be in the Future",
         "unexpected": "An unexpected error occured"
     },
-    "runPersonalFormJS": "Fill the form with personal data"
+    "runPersonalFormJS": "Fill the form with personal data",
+    "vaccinationGroup": {
+        "job": "Job related indication",
+        "medication": "Medical / other related indication",
+        "none": "No indication",
+        "select": "Select your vaccination group"
+    }
 }

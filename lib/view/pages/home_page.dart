@@ -18,6 +18,7 @@ import 'package:vaccination_bot/view/widgets/personal/formfields/postal_form.dar
 import 'package:vaccination_bot/view/widgets/loading.dart';
 import 'package:vaccination_bot/view/widgets/botSettings/settings_form.dart';
 import 'package:vaccination_bot/view/widgets/appbar.dart';
+import 'package:vaccination_bot/view/widgets/personal/formfields/vaccinationgroup_form.dart';
 
 final homepageScaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -80,6 +81,8 @@ class HomePage extends HookWidget {
                         const SizedBox(height: 20),
                         FlatCard(
                             padding: defaultPadding, child: const PostalForm()),
+                        const SizedBox(height: 20),
+                        FlatCard(child: const VaccinationGroupForm()),
                         const SizedBox(height: 20),
                         const FlatCard(child: AdvancedForm()),
                       ],

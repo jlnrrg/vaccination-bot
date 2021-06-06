@@ -22,6 +22,9 @@ class Person with _$Person {
     String? street,
     String? streetNr,
     String? phone,
+    @JsonKey(fromJson: groupFromJson, toJson: groupToJson)
+    @Default(Group.none())
+        Group? group,
   }) = _PersonalFormState;
 
   const Person._();
@@ -45,7 +48,8 @@ class Person with _$Person {
       if (lastName != null) 'let lastName = "$lastName"',
       if (street != null) 'let street = "$street"',
       if (streetNr != null) 'let streetNr = "${streetNr.toString()}"',
-      if (phone != null) 'let phone = "0${phone.toString()}"',
+      if (phone != null) 'let phone = "${phone.toString()}"',
+      if (group != null) 'let group = "${group!.toJson()}"',
     ].join('\n');
   }
 

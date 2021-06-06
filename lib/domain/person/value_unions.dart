@@ -39,3 +39,47 @@ class Gender with _$Gender {
     );
   }
 }
+
+@freezed
+class Group with _$Group {
+  const factory Group.job() = _Job;
+  const factory Group.medicalOrElse() = _MedicalOrElse;
+  const factory Group.none() = _None;
+
+  const Group._();
+
+  static Group? fromJson(String value) {
+    switch (value) {
+      case 'job':
+        return const Group.job();
+      case 'medicalOrElse':
+        return const Group.medicalOrElse();
+      case 'none':
+        return const Group.none();
+    }
+  }
+
+  String toJson() {
+    return map(
+        job: (_) => 'job',
+        medicalOrElse: (_) => 'medicalOrElse',
+        none: (_) => 'none');
+  }
+
+  @override
+  String toString() {
+    return map(
+      job: (_) => LocaleKeys.vaccinationGroup_job.tr(),
+      medicalOrElse: (_) => LocaleKeys.vaccinationGroup_medication.tr(),
+      none: (_) => LocaleKeys.vaccinationGroup_none.tr(),
+    );
+  }
+
+  IconData toIcon() {
+    return map(
+      job: (_) => FontAwesomeIcons.userTie,
+      medicalOrElse: (_) => FontAwesomeIcons.medkit,
+      none: (_) => FontAwesomeIcons.userAltSlash,
+    );
+  }
+}

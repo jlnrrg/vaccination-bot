@@ -19,6 +19,7 @@ _$_PersonalFormState _$_$_PersonalFormStateFromJson(Map<String, dynamic> json) {
     street: json['street'] as String?,
     streetNr: json['streetNr'] as String?,
     phone: json['phone'] as String?,
+    group: groupFromJson(json['group'] as String?),
   );
 }
 
@@ -34,4 +35,5 @@ Map<String, dynamic> _$_$_PersonalFormStateToJson(
       'street': instance.street,
       'streetNr': instance.streetNr,
       'phone': instance.phone,
+      'group': groupToJson(instance.group),
     };

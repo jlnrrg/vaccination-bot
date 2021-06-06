@@ -31,7 +31,9 @@ class _$PersonTearOff {
       String? lastName,
       String? street,
       String? streetNr,
-      String? phone}) {
+      String? phone,
+      @JsonKey(fromJson: groupFromJson, toJson: groupToJson)
+          Group? group = const Group.none()}) {
     return _PersonalFormState(
       email: email,
       birthday: birthday,
@@ -42,6 +44,7 @@ class _$PersonTearOff {
       street: street,
       streetNr: streetNr,
       phone: phone,
+      group: group,
     );
   }
 
@@ -66,6 +69,8 @@ mixin _$Person {
   String? get street => throw _privateConstructorUsedError;
   String? get streetNr => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: groupFromJson, toJson: groupToJson)
+  Group? get group => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -87,11 +92,14 @@ abstract class $PersonCopyWith<$Res> {
       String? lastName,
       String? street,
       String? streetNr,
-      String? phone});
+      String? phone,
+      @JsonKey(fromJson: groupFromJson, toJson: groupToJson)
+          Group? group});
 
   $BirthdayCopyWith<$Res>? get birthday;
   $PostalCopyWith<$Res>? get postal;
   $GenderCopyWith<$Res>? get gender;
+  $GroupCopyWith<$Res>? get group;
 }
 
 /// @nodoc
@@ -113,6 +121,7 @@ class _$PersonCopyWithImpl<$Res> implements $PersonCopyWith<$Res> {
     Object? street = freezed,
     Object? streetNr = freezed,
     Object? phone = freezed,
+    Object? group = freezed,
   }) {
     return _then(_value.copyWith(
       email: email == freezed
@@ -151,6 +160,10 @@ class _$PersonCopyWithImpl<$Res> implements $PersonCopyWith<$Res> {
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
+      group: group == freezed
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as Group?,
     ));
   }
 
@@ -186,6 +199,17 @@ class _$PersonCopyWithImpl<$Res> implements $PersonCopyWith<$Res> {
       return _then(_value.copyWith(gender: value));
     });
   }
+
+  @override
+  $GroupCopyWith<$Res>? get group {
+    if (_value.group == null) {
+      return null;
+    }
+
+    return $GroupCopyWith<$Res>(_value.group!, (value) {
+      return _then(_value.copyWith(group: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -206,7 +230,9 @@ abstract class _$PersonalFormStateCopyWith<$Res>
       String? lastName,
       String? street,
       String? streetNr,
-      String? phone});
+      String? phone,
+      @JsonKey(fromJson: groupFromJson, toJson: groupToJson)
+          Group? group});
 
   @override
   $BirthdayCopyWith<$Res>? get birthday;
@@ -214,6 +240,8 @@ abstract class _$PersonalFormStateCopyWith<$Res>
   $PostalCopyWith<$Res>? get postal;
   @override
   $GenderCopyWith<$Res>? get gender;
+  @override
+  $GroupCopyWith<$Res>? get group;
 }
 
 /// @nodoc
@@ -237,6 +265,7 @@ class __$PersonalFormStateCopyWithImpl<$Res> extends _$PersonCopyWithImpl<$Res>
     Object? street = freezed,
     Object? streetNr = freezed,
     Object? phone = freezed,
+    Object? group = freezed,
   }) {
     return _then(_PersonalFormState(
       email: email == freezed
@@ -275,6 +304,10 @@ class __$PersonalFormStateCopyWithImpl<$Res> extends _$PersonCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
+      group: group == freezed
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as Group?,
     ));
   }
 }
@@ -293,7 +326,9 @@ class _$_PersonalFormState extends _PersonalFormState {
       this.lastName,
       this.street,
       this.streetNr,
-      this.phone})
+      this.phone,
+      @JsonKey(fromJson: groupFromJson, toJson: groupToJson)
+          this.group = const Group.none()})
       : super._();
 
   factory _$_PersonalFormState.fromJson(Map<String, dynamic> json) =>
@@ -319,10 +354,13 @@ class _$_PersonalFormState extends _PersonalFormState {
   final String? streetNr;
   @override
   final String? phone;
+  @override
+  @JsonKey(fromJson: groupFromJson, toJson: groupToJson)
+  final Group? group;
 
   @override
   String toString() {
-    return 'Person(email: $email, birthday: $birthday, postal: $postal, gender: $gender, firstName: $firstName, lastName: $lastName, street: $street, streetNr: $streetNr, phone: $phone)';
+    return 'Person(email: $email, birthday: $birthday, postal: $postal, gender: $gender, firstName: $firstName, lastName: $lastName, street: $street, streetNr: $streetNr, phone: $phone, group: $group)';
   }
 
   @override
@@ -350,7 +388,9 @@ class _$_PersonalFormState extends _PersonalFormState {
                 const DeepCollectionEquality()
                     .equals(other.streetNr, streetNr)) &&
             (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)));
+                const DeepCollectionEquality().equals(other.phone, phone)) &&
+            (identical(other.group, group) ||
+                const DeepCollectionEquality().equals(other.group, group)));
   }
 
   @override
@@ -364,7 +404,8 @@ class _$_PersonalFormState extends _PersonalFormState {
       const DeepCollectionEquality().hash(lastName) ^
       const DeepCollectionEquality().hash(street) ^
       const DeepCollectionEquality().hash(streetNr) ^
-      const DeepCollectionEquality().hash(phone);
+      const DeepCollectionEquality().hash(phone) ^
+      const DeepCollectionEquality().hash(group);
 
   @JsonKey(ignore: true)
   @override
@@ -389,7 +430,9 @@ abstract class _PersonalFormState extends Person {
       String? lastName,
       String? street,
       String? streetNr,
-      String? phone}) = _$_PersonalFormState;
+      String? phone,
+      @JsonKey(fromJson: groupFromJson, toJson: groupToJson)
+          Group? group}) = _$_PersonalFormState;
   const _PersonalFormState._() : super._();
 
   factory _PersonalFormState.fromJson(Map<String, dynamic> json) =
@@ -415,6 +458,9 @@ abstract class _PersonalFormState extends Person {
   String? get streetNr => throw _privateConstructorUsedError;
   @override
   String? get phone => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(fromJson: groupFromJson, toJson: groupToJson)
+  Group? get group => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PersonalFormStateCopyWith<_PersonalFormState> get copyWith =>
