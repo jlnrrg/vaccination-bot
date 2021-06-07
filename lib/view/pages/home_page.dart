@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:readmore/readmore.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:vaccination_bot/application/bot_settings_form/bot_settings_form_notifier.dart';
 import 'package:vaccination_bot/application/personal_form/personal_form_notifier.dart';
 import 'package:vaccination_bot/view/components/flat_card.dart';
