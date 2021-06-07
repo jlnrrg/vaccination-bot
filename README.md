@@ -1,16 +1,56 @@
-# impftermin
+# Vaccination Bot
+This Application requests information from the [vaccination website](https://www.impfportal-niedersachsen.de/portal/#/appointment/public) of lower saxony concerning open vaccination appointments. </br>
+Once such an appointment is found, the user gets a notification which forwards him to the website, where inforation and human autentifications have to be solved.
 
-A new Flutter project.
+## Features
+- background execution to ping the [vaccination website](https://www.impfportal-niedersachsen.de/portal/#/appointment/public)
+- automatic forwarding to the search page
+- automatic form filling
+- white/ dark theme
+- local save of input data
+## Steps for the best functionality
+1. Fill in all requested user data. (The information is only saved on the device locally.)
+2. Hit the green checkmark to start the process.
+3. Agree to the background execution.
+4. You can now do something else. The app will run in the background and notifies you once an appointment is open.
+5. *Once you get a notification.*
+6. Tab the notication and fill out requested captcha and sms authentication.
+7. Once you reach the personal data form, you can hit the script button to automate the task of filling out the form.
+8. Be fast to specify the appointment, as these are only blocked once you hit the last confirm button.
 
-## Getting Started
+## Screenshots
+The app auto-supports german and english language. Screenshots were made on a german android version.
 
-This project is a starting point for a Flutter application.
+### Start Page
+<img src="./screenshots/shot1_w.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot1_b.jpg" alt="drawing" width="400"/>
+</br></br></br>
 
-A few resources to get you started if this is your first Flutter project:
+### Expanded Description
+<img src="./screenshots/shot2_w.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot2_b.jpg" alt="drawing" width="400"/>
+</br></br></br>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Vaccination Indication Dialog
+<img src="./screenshots/shot3_w.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot3_b.jpg" alt="drawing" width="400"/>
+</br></br></br>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Further Personal Information
+<img src="./screenshots/shot4_w.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot4_b.jpg" alt="drawing" width="400"/>
+</br></br></br>
+
+### Bot Settings
+<img src="./screenshots/shot5_w.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot5_b.jpg" alt="drawing" width="400"/>
+</br></br></br>
+
+### Background Execution Started
+<img src="./screenshots/shot6_w.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot6_b.jpg" alt="drawing" width="400"/>
+</br></br></br>
+
+### Webview with Script Button
+<img src="./screenshots/shot7_w.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot7_b.jpg" alt="drawing" width="400"/>

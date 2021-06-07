@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.teavelopment.vaccination-bot">
+    package="com.teavelopment.vaccination_bot">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
