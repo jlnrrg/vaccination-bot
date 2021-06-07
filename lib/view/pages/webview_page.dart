@@ -50,6 +50,8 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   void initState() {
     super.initState();
+    _interstitialAd = InterstitialAdWidget()..initialize();
+
     pullToRefreshController = PullToRefreshController(
       options: PullToRefreshOptions(
         color: Colors.blue,
@@ -67,8 +69,6 @@ class _WebViewPageState extends State<WebViewPage> {
     logger = Logger(
       printer: PrettyPrinter(methodCount: 0, printTime: true),
     );
-
-    _interstitialAd = InterstitialAdWidget()..initialize();
   }
 
   @override

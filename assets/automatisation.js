@@ -1,7 +1,3 @@
-let birthday = "20.08.1994";
-let postal = "49088";
-let group = "none";
-
 function getElementByXPath(xpath) {
   return new XPathEvaluator()
     .createExpression(xpath)
