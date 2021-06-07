@@ -9,7 +9,5 @@ const AdRequest adRequest = AdRequest(
     'niedersachsen',
     'hintergrund'
   ],
-  contentUrl:
-      'https://www.impfportal-niedersachsen.de/portal/#/appointment/public',
   nonPersonalizedAds: true,
 );
