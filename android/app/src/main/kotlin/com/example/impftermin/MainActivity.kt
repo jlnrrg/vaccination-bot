@@ -1,4 +1,4 @@
-package com.example.impftermin
+package com.teavelopment.vaccination-bot
 
 import io.flutter.embedding.android.FlutterActivity
 
