@@ -26,35 +26,35 @@ This has been tested and is either because the [vaccination website](https://www
 The app auto-supports german and english language. Screenshots were made on a german android version.
 
 ### Start Page
-<img src="./screenshots/shot1_w.jpg" alt="drawing" width="400"/>
-<img src="./screenshots/shot1_b.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot1_w.jpg" alt="drawing" width="300"/>
+<img src="./screenshots/shot1_b.jpg" alt="drawing" width="300"/>
 </br></br></br>
 
 ### Expanded Description
-<img src="./screenshots/shot2_w.jpg" alt="drawing" width="400"/>
-<img src="./screenshots/shot2_b.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot2_w.jpg" alt="drawing" width="300"/>
+<img src="./screenshots/shot2_b.jpg" alt="drawing" width="300"/>
 </br></br></br>
 
 ### Vaccination Indication Dialog
-<img src="./screenshots/shot3_w.jpg" alt="drawing" width="400"/>
-<img src="./screenshots/shot3_b.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot3_w.jpg" alt="drawing" width="300"/>
+<img src="./screenshots/shot3_b.jpg" alt="drawing" width="300"/>
 </br></br></br>
 
 ### Further Personal Information
-<img src="./screenshots/shot4_w.jpg" alt="drawing" width="400"/>
-<img src="./screenshots/shot4_b.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot4_w.jpg" alt="drawing" width="300"/>
+<img src="./screenshots/shot4_b.jpg" alt="drawing" width="300"/>
 </br></br></br>
 
 ### Bot Settings
-<img src="./screenshots/shot5_w.jpg" alt="drawing" width="400"/>
-<img src="./screenshots/shot5_b.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot5_w.jpg" alt="drawing" width="300"/>
+<img src="./screenshots/shot5_b.jpg" alt="drawing" width="300"/>
 </br></br></br>
 
 ### Background Execution Started
-<img src="./screenshots/shot6_w.jpg" alt="drawing" width="400"/>
-<img src="./screenshots/shot6_b.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot6_w.jpg" alt="drawing" width="300"/>
+<img src="./screenshots/shot6_b.jpg" alt="drawing" width="300"/>
 </br></br></br>
 
 ### Webview with Script Button
-<img src="./screenshots/shot7_w.jpg" alt="drawing" width="400"/>
-<img src="./screenshots/shot7_b.jpg" alt="drawing" width="400"/>
+<img src="./screenshots/shot7_w.jpg" alt="drawing" width="300"/>
+<img src="./screenshots/shot7_b.jpg" alt="drawing" width="300"/>
