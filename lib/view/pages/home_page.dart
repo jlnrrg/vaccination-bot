@@ -82,10 +82,10 @@ class HomePage extends HookWidget {
                         const SizedBox(height: 20),
                         FlatCard(
                             padding: defaultPadding, child: const PostalForm()),
-                        const SizedBox(height: 20),
-                        const FlatCard(
-                            // label: LocaleKeys.vaccinationGroup_label.tr(),
-                            child: VaccinationGroupForm()),
+                        // const SizedBox(height: 20),
+                        // const FlatCard(
+                        //     // label: LocaleKeys.vaccinationGroup_label.tr(),
+                        //     child: VaccinationGroupForm()),
                         const SizedBox(height: 20),
                         const FlatCard(child: AdvancedForm()),
                       ],
