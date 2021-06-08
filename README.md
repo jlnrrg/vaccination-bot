@@ -2,6 +2,10 @@
 This Application requests information from the [vaccination website](https://www.impfportal-niedersachsen.de/portal/#/appointment/public) of lower saxony concerning open vaccination appointments. </br>
 Once such an appointment is found, the user gets a notification which forwards him to the website, where inforation and human autentifications have to be solved.
 
+## Disclaimer
+It can happen that you get a notification, tab on it and see that there is no appointment available.
+This has been tested and is either because the [vaccination website](https://www.impfportal-niedersachsen.de/portal/#/appointment/public) sends wrong information or bc someone else uses a bot which works faster. All I can say is better luck next time 🤞.
+
 ## Features
 - background execution to ping the [vaccination website](https://www.impfportal-niedersachsen.de/portal/#/appointment/public)
 - automatic forwarding to the search page
