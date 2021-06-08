@@ -16,6 +16,11 @@ document
   .querySelector('input[id="mat-input-9"]')
   .dispatchEvent(new Event("input"));
 
+// click Place
+document
+  .querySelector('input[id="mat-input-14"]')
+  .dispatchEvent(new Event("input"));
+
 // street
 document.querySelector('input[id="mat-input-24"]').value = street;
 document
