@@ -39,12 +39,12 @@ The app auto-supports german and english language. Screenshots were made on a ge
 </p>
 </br>
 
-### Vaccination Indication Dialog
+<!-- ### Vaccination Indication Dialog
 <p float="left">
 <img src="./screenshots/shot3_w.jpg" alt="drawing" width="300"/>
 <img src="./screenshots/shot3_b.jpg" alt="drawing" width="300"/>
 </p>
-</br>
+</br> -->
 
 ### Further Personal Information
 <p float="left">

@@ -59,7 +59,7 @@ class BackgroundTaskStateNotifier extends StateNotifier<AsyncValue<int>?> {
 
   Future<bool> _fetchTestApi(String postal, DateTime birthday) async {
     // for testing
-    if (executions == 20) {
+    if (executions == 5) {
       return false;
     } else {
       return true;

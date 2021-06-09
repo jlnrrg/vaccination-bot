@@ -20,14 +20,12 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return const _i3.HomePage();
-        },
-        fullscreenDialog: true),
+        }),
     WebViewPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return const _i4.WebViewPage();
-        },
-        fullscreenDialog: true)
+        })
   };
 
   @override

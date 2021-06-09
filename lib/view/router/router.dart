@@ -12,11 +12,9 @@ export 'router.gr.dart';
         path: '/',
         initial: true,
         page: HomePage,
-        fullscreenDialog: true,
       ),
       AutoRoute<dynamic>(
         page: WebViewPage,
-        fullscreenDialog: true,
       ),
     ])
 class $AppRouter {}

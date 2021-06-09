@@ -6,6 +6,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:vaccination_bot/application/downloader/downloader.dart';
+import 'package:vaccination_bot/application/notification/notification_service.dart';
 import 'package:vaccination_bot/constants/secrets.dart';
 import 'package:vaccination_bot/model/shared_preferences_service.dart';
 import 'package:vaccination_bot/view/router/router.dart';
