@@ -31,35 +31,21 @@ jobs:
       # - name: Check formatting issues
       #   run: flutter format --set-exit-if-changed .
 
-      - name: Decode secrets.properties
+      - name: Decode secrets
         if: ${{ !env.ACT }}
         env:
           SECRETS_PROPERTIES: ${{ secrets.SECRETS_PROPERTIES }}
-        run: echo $SECRETS_PROPERTIES > secrets.properties
-        working-directory: ./android
-
-      - name: Decode secrets.dart Constants
-        if: ${{ !env.ACT }}
-        env:
           SECRETS_DART: ${{ secrets.SECRETS_DART }}
-        run: |
-          mkdir ./lib/constants
-          echo $SECRETS_DART > lib/constants/secrets.dart
-
-      - name: Decode key.properties
-        if: ${{ !env.ACT }}
-        env:
           KEY_PROPERTIES: ${{ secrets.KEY_PROPERTIES }}
-        run: echo $KEY_PROPERTIES > key.properties
-        working-directory: ./android
-
-      - name: Decode keystore
-        if: ${{ !env.ACT }}
-        env:
           KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
         run: |
+          echo $SECRETS_PROPERTIES > ./android/secrets.properties
+          echo $KEY_PROPERTIES > ./android/key.properties
+          mkdir -p ./lib/constants
+          echo $SECRETS_DART > lib/constants/secrets.dart
           sudo mkdir -p /home/owner
-          base64 -d -i "$KEYSTORE_B64" > /home/owner/upload-keystore.jks
+          echo $KEYSTORE_B64 > /home/owner/upload-keystore.jks.b64
+          base64 -d -i /home/owner/upload-keystore.jks.b64 > /home/owner/upload-keystore.jks
 
       - name: Analyze dart code for errors
         run: flutter analyze .
