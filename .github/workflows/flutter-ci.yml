@@ -46,6 +46,21 @@ jobs:
           mkdir ./lib/constants
           echo $SECRETS_DART > lib/constants/secrets.dart
 
+      - name: Decode key.properties
+        if: ${{ !env.ACT }}
+        env:
+          KEY_PROPERTIES: ${{ secrets.KEY_PROPERTIES }}
+        run: echo $KEY_PROPERTIES > key.properties
+        working-directory: ./android
+
+      - name: Decode keystore
+        if: ${{ !env.ACT }}
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
+        run: |
+          mkdir /home/owner
+          base64 -d -i "$KEYSTORE_B64" > /home/owner/upload-keystore.jks
+
       - name: Analyze dart code for errors
         run: flutter analyze .
 
