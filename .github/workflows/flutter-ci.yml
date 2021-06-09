@@ -58,7 +58,7 @@ jobs:
         env:
           KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
         run: |
-          mkdir /home/owner
+          sudo mkdir -p /home/owner
           base64 -d -i "$KEYSTORE_B64" > /home/owner/upload-keystore.jks
 
       - name: Analyze dart code for errors
