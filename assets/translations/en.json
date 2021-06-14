@@ -58,12 +58,12 @@
         "seconds": "sec"
     },
     "loadingExecutions": {
-        "zero": "Execution: {}",
-        "one": "Execution: {}",
-        "two": "Executions: {}",
-        "few": "Executions: {}",
-        "many": "Executions: {}",
-        "other": "Executions: {}"
+        "zero": "Bot is searching for\nopen appointments.\n{} requests were made.",
+        "one": "Bot is searching for\nopen appointments.\n{} request was made.",
+        "two": "Bot is searching for\nopen appointments.\n{} requests were made.",
+        "few": "Bot is searching for\nopen appointments.\n{} requests were made.",
+        "many": "Bot is searching for\nopen appointments.\n{} requests were made.",
+        "other": "Bot is searching for\nopen appointments.\n{} requests were made."
     },
     "backgroundExec": {
         "title": "flutter_background example app",

@@ -58,12 +58,12 @@
         "seconds": "sec"
     },
     "loadingExecutions": {
-        "zero": "Ausführung: {}",
-        "one": "Ausführung: {}",
-        "two": "Ausführungen: {}",
-        "few": "Ausführungen: {}",
-        "many": "Ausführungen: {}",
-        "other": "Ausführungen: {}"
+        "zero": "Bot sucht nach\nfreien Terminen.\n{} Anfragen ausgeführt",
+        "one": "Bot sucht nach\nfreien Terminen.\n{} Anfrage ausgeführt",
+        "two": "Bot sucht nach\nfreien Terminen.\n{} Anfragen ausgeführt",
+        "few": "Bot sucht nach\nfreien Terminen.\n{} Anfragen ausgeführt",
+        "many": "Bot sucht nach\nfreien Terminen.\n{} Anfragen ausgeführt",
+        "other": "Bot sucht nach\nfreien Terminen.\n{} Anfragen ausgeführt"
     },
     "backgroundExec": {
         "title": "flutter_background example app",
